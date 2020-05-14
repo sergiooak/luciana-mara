@@ -1,8 +1,6 @@
 <template>
   <div id="content">
-    <section>
-      Sslider
-    </section>
+    <SliderHome />
     <section>
       vantagens
     </section>
@@ -19,9 +17,12 @@
 </template>
 
 <script>
-export default {
-  components: {
+import SliderHome from '~/components/Home/SliderHome.vue';
 
+export default {
+  name: 'Home',
+  components: {
+    SliderHome
   }
 }
 </script>
