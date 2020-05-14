@@ -2,7 +2,7 @@
   <section class="slider">
     <div class="container mx-auto">
       <div class="w-9/12 flex justify-between items-center mx-auto">
-        <div class="">
+        <div class="bloco-texto">
           <h1 class="text-xl text-astronaut">Blusa Classic</h1>
           <h2 class="text-lg text-gray-600 font-bold w-3/4 leading-tight">
             Sub-título chamativo para explicar alguma novidade ou não!
@@ -28,6 +28,10 @@
     height: 320px;
     background-image: url('/slider-bg.svg');
     background-size: cover;
+  }
+
+  .bloco-texto{
+    margin-top: calc(-75px / 2);
   }
 
   img{

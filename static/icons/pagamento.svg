@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="28" viewBox="0 0 42 28">
+  <g id="business-and-finance" transform="translate(0 -85.333)">
+    <g id="Grupo_10" data-name="Grupo 10" transform="translate(0 85.333)">
+      <g id="Grupo_9" data-name="Grupo 9" transform="translate(0 0)">
+        <path id="Caminho_207" data-name="Caminho 207" d="M37.625,85.333H4.375A4.381,4.381,0,0,0,0,89.708v19.25a4.381,4.381,0,0,0,4.375,4.375h33.25A4.381,4.381,0,0,0,42,108.958V89.708A4.381,4.381,0,0,0,37.625,85.333Zm2.625,23.625a2.628,2.628,0,0,1-2.625,2.625H4.375a2.628,2.628,0,0,1-2.625-2.625V89.708a2.628,2.628,0,0,1,2.625-2.625h33.25a2.628,2.628,0,0,1,2.625,2.625v19.25Z" transform="translate(0 -85.333)" fill="#cb4d64"/>
+      </g>
+    </g>
+    <g id="Grupo_12" data-name="Grupo 12" transform="translate(0 90.583)">
+      <g id="Grupo_11" data-name="Grupo 11" transform="translate(0 0)">
+        <path id="Caminho_208" data-name="Caminho 208" d="M41.125,149.333H.875a.875.875,0,0,0-.875.875v5.25a.875.875,0,0,0,.875.875h40.25a.875.875,0,0,0,.875-.875v-5.25A.875.875,0,0,0,41.125,149.333Zm-.875,5.25H1.75v-3.5h38.5v3.5Z" transform="translate(0 -149.333)" fill="#cb4d64"/>
+      </g>
+    </g>
+    <g id="Grupo_14" data-name="Grupo 14" transform="translate(5.25 102.833)">
+      <g id="Grupo_13" data-name="Grupo 13">
+        <path id="Caminho_209" data-name="Caminho 209" d="M75.375,298.667h-10.5a.875.875,0,1,0,0,1.75h10.5a.875.875,0,1,0,0-1.75Z" transform="translate(-64 -298.667)" fill="#cb4d64"/>
+      </g>
+    </g>
+    <g id="Grupo_16" data-name="Grupo 16" transform="translate(5.25 106.333)">
+      <g id="Grupo_15" data-name="Grupo 15" transform="translate(0 0)">
+        <path id="Caminho_210" data-name="Caminho 210" d="M75.375,341.333h-10.5a.875.875,0,0,0,0,1.75h10.5a.875.875,0,0,0,0-1.75Z" transform="translate(-64 -341.333)" fill="#cb4d64"/>
+      </g>
+    </g>
+    <g id="Grupo_18" data-name="Grupo 18" transform="translate(29.75 101.083)">
+      <g id="Grupo_17" data-name="Grupo 17" transform="translate(0 0)">
+        <path id="Caminho_211" data-name="Caminho 211" d="M367.042,277.333h-1.75a2.628,2.628,0,0,0-2.625,2.625v1.75a2.628,2.628,0,0,0,2.625,2.625h1.75a2.628,2.628,0,0,0,2.625-2.625v-1.75A2.628,2.628,0,0,0,367.042,277.333Zm.875,4.375a.875.875,0,0,1-.875.875h-1.75a.875.875,0,0,1-.875-.875v-1.75a.875.875,0,0,1,.875-.875h1.75a.875.875,0,0,1,.875.875Z" transform="translate(-362.667 -277.333)" fill="#cb4d64"/>
+      </g>
+    </g>
+  </g>
+</svg>
