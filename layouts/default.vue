@@ -1,17 +1,21 @@
 <template>
   <div class="site-wrapper">
     <Header />
-    <nuxt class="flex-1" />
+    <fade-transition>
+      <nuxt class="flex-1" />
+    </fade-transition>
     <Footer />
   </div>
 </template>
 
 <script>
+  import { FadeTransition } from 'vue2-transitions'
   import Header from '~/components/global/Header.vue';
   import Footer from '~/components/global/Footer.vue';
 
   export default {
     components: {
+      FadeTransition,
       Header,
       Footer
     }

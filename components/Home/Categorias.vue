@@ -2,7 +2,7 @@
   <section class="categorias">
     <HeadingSection title="Categorias" />
     <div class="container mx-auto flex flex-wrap">
-      <nuxt-link v-for="categoria in categorias" :to="url(categoria.slug)" class="categoria w-1/6 px-4">
+      <nuxt-link v-for="categoria in categorias" :key="categoria.slug" :to="url(categoria.slug)" class="categoria w-1/6 px-4">
         <div class="bg-white shadow">
           {{ categoria.titulo }}
         </div>

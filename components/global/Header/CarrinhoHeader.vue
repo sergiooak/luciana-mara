@@ -3,7 +3,7 @@
     <div class="valor-carrinho text-astronaut mr-4">
       R$ 000,00
     </div>
-    <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer">
+    <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer text-astronaut">
       {{ items }}
     </div>
   </div>
