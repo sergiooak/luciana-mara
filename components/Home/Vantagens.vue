@@ -34,7 +34,7 @@
 
 <script>
   export default {
-    name: 'Vantagens'
+    name: 'Vantagens'    
   }
 </script>
 

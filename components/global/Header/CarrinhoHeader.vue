@@ -34,14 +34,14 @@
         width: 14px;
         height: 20px;
         z-index: -1;
-        transition: top ease .3s;
+        transition: top ease .15s;
         @apply border-2 border-astronaut rounded-full;
       }
     }
     &:hover{
       .itens-carrinho{
         &:before {
-          top: -15px;
+          top: -12px;
         }
       }
     }
