@@ -19,13 +19,20 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@font-face {
+    font-family: 'Jost';
+    src:  url('../assets/fonts/Jost-SemiBold.woff2') format('woff2'),
+          url('../assets/fonts/Jost-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
 
   @font-face {
     font-family: 'be';
     src:  url('../assets/fonts/BelleroseLight.woff2') format('woff2'),
           url('../assets/fonts/BelleroseLight.woff') format('woff');
     font-weight: 300;
+    font-display: swap;
     font-style: normal;
   }
 
@@ -34,7 +41,7 @@
   }
 
   body{
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', serif;
     @apply bg-gray-200;
   }
 

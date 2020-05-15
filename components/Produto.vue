@@ -6,13 +6,13 @@
       </figure>
     </div>
     <div class="p-4">
-      <span class="categoria text-gray-600 font-bold">
+      <span class="categoria text-gray-600">
         {{ categoria }}
       </span>
-      <h4 class="text-xl text-astronaut font-bold">
+      <h4 class="text-xl text-astronaut">
         {{ titulo }}
       </h4>
-      <p class="preco text-lg text-mara font-bold">
+      <p class="preco text-lg text-mara">
         {{ preco }}
       </p>
     </div>
