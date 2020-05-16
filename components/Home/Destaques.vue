@@ -11,7 +11,7 @@
 
 <script>
   import HeadingSection from "~/components/HeadingSection.vue"
-  import Produto from "~/components/Produto.vue"
+  import Produto from "~/components/produto.vue"
 
   export default {
     name: 'Destaques',

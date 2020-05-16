@@ -45,22 +45,22 @@
             titulo: 'Blusa Classic',
             conteudo: 'Sub-título chamativo para explicar alguma novidade ou não!',
             cta: 'Veja mais detalhes!',
-            ctaLink: '/produto/blusa-classic',
-            imagem: 'slider/slider-demo.png'
+            ctaLink: '/uniforme/blusa-classic',
+            imagem: '/slider/slider-demo.png'
           },
           {
             titulo: 'Lorem Ipsum',
             conteudo: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             cta: 'cta',
-            ctaLink: '/produto/blusa-classic',
-            imagem: 'slider/slider-demo.png'
+            ctaLink: '/uniforme/blusa-classic',
+            imagem: '/slider/slider-demo.png'
           },
           {
             titulo: '3',
             conteudo: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             cta: 'cta',
-            ctaLink: '/produto/blusa-classic',
-            imagem: 'slider/slider-demo.png'
+            ctaLink: '/uniforme/blusa-classic',
+            imagem: '/slider/slider-demo.png'
           },
         ]
       }

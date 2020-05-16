@@ -5,7 +5,7 @@
         <div class="w-1/2 flex pr-8">
           <div class="w-1/2 flex flex-col justify-center items-center">
             <nuxt-link to="/">
-              <img src="logo/logo-vertical-fundo-escuro.svg" style="height: 100px;" alt="Luciana Mara - Estúdio de Costura">
+              <img src="/logo/logo-vertical-fundo-escuro.svg" style="height: 100px;" alt="Luciana Mara - Estúdio de Costura">
             </nuxt-link>
             <div class="mt-4">
               icones sociais
