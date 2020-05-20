@@ -11,7 +11,7 @@
 
 <script>
   import HeadingSection from "~/components/HeadingSection.vue"
-  import Produto from "~/components/produto.vue"
+  import Produto from "~/components/Produto.vue"
 
   export default {
     name: 'Destaques',
@@ -44,8 +44,8 @@
             slug: 'lorem-ipsum'
           },
           {
-            titulo: "Lorem Ipsum",
-            categoria: "Categoria",
+            titulo: "Blusa Laço Cavada",
+            categoria: "Feminino / Blusas",
             preco: "R$ 000,00",
             imagem: "tests/demo_4",
             slug: 'lorem-ipsum'
