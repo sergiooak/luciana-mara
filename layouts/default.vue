@@ -1,10 +1,6 @@
 <template>
-  <div class="site-wrapper">
-    <Header />
-    <fade-transition>
-      <nuxt class="flex-1" />
-    </fade-transition>
-    <Footer />
+  <div class="site-wrapper flex items-center justify-center">
+    Em breve...
   </div>
 </template>
 
