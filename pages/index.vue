@@ -1,10 +1,6 @@
 <template>
-  <div id="content">
-    <SliderHome />
-    <Vantagens />
-    <Destaques />
-    <Categorias />
-    <Instagram class="mb-8"/>
+  <div id="content" class="flex items-center justify-center">
+    Em breve...
   </div>
 </template>
 
