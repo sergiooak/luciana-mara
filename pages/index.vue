@@ -3,7 +3,7 @@
     <SliderHome />
     <Vantagens />
     <Destaques />
-    <Categorias />
+    <!-- <Categorias /> -->
     <Instagram class="mb-8"/>
   </div>
 </template>

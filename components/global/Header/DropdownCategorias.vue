@@ -53,6 +53,11 @@
       url(slug){
         return `/categoria/${slug}`
       }
+    },
+    computed: {
+      categories() {
+        return this.$store.state.categories.items
+      }
     }
   }
 </script>

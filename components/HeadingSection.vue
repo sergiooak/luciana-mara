@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container mx-auto flex justify-center relative mt-20 mb-10">
+  <div class="container mx-auto flex justify-center relative">
     <h2 class="font-be text-center border-2 border-astronaut inline-flex items-center justify-center px-8 uppercase text-astronaut">
       {{ title }}
     </h2>

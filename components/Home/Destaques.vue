@@ -1,9 +1,9 @@
 <template lang="html">
   <section class="destaques">
-    <HeadingSection title="Produtos em destaque" />
+    <HeadingSection class="mt-8 mb-8" title="Produtos em destaque" />
     <div class="container mx-auto flex flex-wrap -mb-16">
-      <div v-for="produto in destaques" class="w-1/4 px-4 mb-16">
-        <Produto :titulo="produto.titulo" :categoria="produto.categoria" :preco="produto.preco" :imagem="produto.imagem" :slug="produto.slug" />
+      <div v-for="produto in products" class="w-1/4 px-4 mb-16">
+          <Produto :product="produto" :titulo="produto.name" :categoria="produto.categoria" :preco="produto.price" :images="produto.images" :slug="produto.slug" />
       </div>
     </div>
   </section>
@@ -52,6 +52,17 @@
           }
         ]
       }
+    },
+    computed: {
+      products(){
+        return this.$store.state.products.trending.items;
+      },
+      isLoading(){
+        return this.$store.state.products.trending.loading;
+      }
+    },
+    mounted: function (){
+
     }
   }
 </script>

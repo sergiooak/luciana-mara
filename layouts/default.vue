@@ -1,6 +1,10 @@
 <template>
-  <div class="site-wrapper flex items-center justify-center">
-    Em breve...
+  <div class="site-wrapper">
+    <Header />
+    <fade-transition>
+      <nuxt class="flex-1" />
+    </fade-transition>
+    <Footer />
   </div>
 </template>
 
@@ -14,18 +18,24 @@
       FadeTransition,
       Header,
       Footer
+    },
+
+    mounted() {
+      this.$store.dispatch("categories/retrieve");
+      this.$store.dispatch("products/retrieve");
+      this.$store.dispatch("instagram/retrieve");
     }
   }
 </script>
 
 <style>
-@font-face {
-    font-family: 'Jost';
-    src:  url('../assets/fonts/Jost-SemiBold.woff2') format('woff2'),
-          url('../assets/fonts/Jost-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
+  @font-face {
+      font-family: 'Jost';
+      src:  url('../assets/fonts/Jost-SemiBold.woff2') format('woff2'),
+            url('../assets/fonts/Jost-SemiBold.woff') format('woff');
+      font-weight: 600;
+      font-style: normal;
+  }
 
   @font-face {
     font-family: 'be';
