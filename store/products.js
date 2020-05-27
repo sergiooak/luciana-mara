@@ -32,6 +32,9 @@ export const actions = {
       }
     }
 
+    console.log(API_URL);
+    console.log(process.env.TOKEN);
+
     var vm = this
     vm.$axios
       .$get(`${API_URL}/wp-json/wc/v3/products`, config)
