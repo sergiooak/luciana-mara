@@ -22,7 +22,7 @@
             <DropdownCategorias v-show="mostraCategorias" />
           </slide-y-up-transition>
           <div class="text-astronaut ml-6 cursor-pointer">
-            Clientes
+            Clientes.
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default {
   name: 'Header',
   components: {
     CarrinhoHeader,
-    DropdownCategorias;
+    DropdownCategorias,
     SlideYUpTransition
   },
   data: function (){
