@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     fotos() {
-      return this.$store.state.products.current.images;
+      return this.$store.state.products.current.item.images;
     },
     currentFoto() {
       return this.fotos[this.currentFotoIndex]

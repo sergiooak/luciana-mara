@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="wrapper pt-8">
-    <main class="container mx-auto flex">
+    <main v-if="!loading" class="container mx-auto flex">
       <div class="w-1/2">
         <Galeria v-if="product.slug == $route.params.slug" />
       </div>
@@ -36,7 +36,7 @@
               <header class="text-lg text-astronaut">
                 Tamanhos:
               </header>
-              <div class="content flex">
+              <div v-if="product.attributes" class="content flex">
                 <div class="h-10 w-10 border-2 border-astronaut text-astronaut flex items-center justify-center ml-2 hover:bg-astronaut hover:text-white cursor-pointer" v-for="tamanho in product.attributes[0].options">
                   {{ tamanho }}
                 </div>
@@ -46,6 +46,9 @@
         </div>
       </div>
     </main>
+    <div>
+      Carregando {{loading}}
+    </div>
     <section>
       <div class="container mx-auto">
         <HeadingSection title="Produtos Relacionados" />
@@ -68,9 +71,16 @@
       return {
       }
     },
+    mounted() {
+      let payload = this.$route.params.slug;
+      this.$store.dispatch("products/retrieveSingle", payload);
+    },
     computed: {
+      loading(){
+        return this.$store.state.products.current.loading;
+      },
       product(){
-        return this.$store.state.products.current;
+        return this.$store.state.products.current.item;
       },
     },
   }
