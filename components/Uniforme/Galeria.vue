@@ -14,15 +14,15 @@
 <script>
 export default {
   name: 'Galeria',
-  props: [
-    'fotos'
-  ],
   data() {
     return{
       currentFotoIndex: 0
     }
   },
   computed: {
+    fotos() {
+      return this.$store.state.products.current.images;
+    },
     currentFoto() {
       return this.fotos[this.currentFotoIndex]
     }

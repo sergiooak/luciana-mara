@@ -40,7 +40,7 @@ export const actions = {
 
     var vm = this
     vm.$axios
-      .$get(`${API_URL}/wp-json/wc/v3/products`, config)
+      .$get(`${API_URL}/wp-json/wc/v3/products?status=publish`, config)
       .then(function(res) {
           context.commit("toggle", res);
       })
@@ -49,7 +49,7 @@ export const actions = {
       });
 
     vm.$axios
-      .$get(`${API_URL}/wp-json/wc/v3/products?per_page=4`, config)
+      .$get(`${API_URL}/wp-json/wc/v3/products?per_page=4&status=publish`, config)
       .then(function(res) {
           context.commit("toggleTrending", res);
       })

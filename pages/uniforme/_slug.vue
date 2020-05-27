@@ -2,7 +2,7 @@
   <div class="wrapper pt-8">
     <main class="container mx-auto flex">
       <div class="w-1/2">
-        <Galeria :fotos="product.images" />
+        <Galeria v-if="product.slug == $route.params.slug" />
       </div>
       <div class="w-1/2">
         <h1 class="text-astronaut text-4xl mb-4">{{ product.name }}</h1>
@@ -66,12 +66,6 @@
     },
     data() {
       return {
-        fotos: [
-          'https://via.placeholder.com/544',
-          'https://via.placeholder.com/545',
-          'https://via.placeholder.com/546',
-          'https://via.placeholder.com/547',
-        ]
       }
     },
     computed: {
