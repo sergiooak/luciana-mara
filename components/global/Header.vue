@@ -50,7 +50,7 @@ export default {
   name: 'Header',
   components: {
     CarrinhoHeader,
-    DropdownCategorias,
+    DropdownCategorias;
     SlideYUpTransition
   },
   data: function (){
