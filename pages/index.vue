@@ -2,7 +2,7 @@
   <div id="content">
     <SliderHome />
     <Vantagens />
-    <Destaques />
+    <!-- <Destaques /> -->
     <!-- <Categorias /> -->
     <Instagram class="mb-8"/>
   </div>
