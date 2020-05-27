@@ -2,3 +2,7 @@
   from = "/admin"
   to = "https://wplucianamara1.websiteseguro.com/wp-admin"
   status = 200
+
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
