@@ -1,3 +1,9 @@
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+
 [[redirects]]
   from = "/admin"
   to = "https://wplucianamara1.websiteseguro.com/wp-admin"
