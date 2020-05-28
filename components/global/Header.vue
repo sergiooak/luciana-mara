@@ -7,8 +7,8 @@
             <img src="/logo/logo-horizontal.svg" style="height: 75px;" alt="Luciana Mara - Estúdio de Costura">
           </nuxt-link>
         </div>
-        <div class="ml-6 flex">
-          <div   id="mostraCategorias"
+        <div class="ml-6 flex relative">
+          <div  id="mostraCategorias"
                 class="text-astronaut relative flex justify-between items-center focus:shadow-none focus:outline-none
                 transition-color ease duration-300 hover:text-mara"
                 tabindex="0" role="button"
@@ -21,9 +21,17 @@
           <slide-y-up-transition>
             <DropdownCategorias v-show="mostraCategorias" />
           </slide-y-up-transition>
-          <div class="text-astronaut ml-6 cursor-pointer">
-            Clientes
+          <div  id="mostraClientes"
+                class="text-astronaut ml-6 cursor-pointer"
+                tabindex="0" role="button"
+                :aria-pressed="mostraClientes"
+                @mouseover="mostraClientes = true"
+                @mouseleave="checaClientes()">            
+            <span>Clientes</span>
           </div>
+          <slide-y-up-transition>
+            <DropdownClientes v-show="mostraClientes" />
+          </slide-y-up-transition>
         </div>
       </div>
       <div class="w-1/2 flex justify-end items-center">
@@ -44,6 +52,7 @@
 <script>
 import CarrinhoHeader     from '~/components/global/Header/CarrinhoHeader.vue';
 import DropdownCategorias from '~/components/global/Header/DropdownCategorias.vue';
+import DropdownClientes from '~/components/global/Header/DropdownClientes.vue';
 import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
@@ -51,11 +60,13 @@ export default {
   components: {
     CarrinhoHeader,
     DropdownCategorias,
+    DropdownClientes,
     SlideYUpTransition
   },
   data: function (){
     return {
       mostraCategorias: false,
+      mostraClientes: false,
       s: null
     }
   },
@@ -71,6 +82,18 @@ export default {
           clearInterval(chekingLoop);
         }else{
           // console.log('mantem aberto');
+        }
+      },1000);
+    },
+    checaClientes(){
+      let vm = this;
+      let chekingLoopClientes = setInterval(function (){
+        let isHoveringClientes = document.querySelector( "#mostraClientes:hover" );
+        let isHoveringDropdownCategorias = document.querySelector('#DropdownClientes:hover')
+        if (!isHoveringClientes && !isHoveringDropdownCategorias){
+          vm.mostraClientes = false;
+          clearInterval(chekingLoopClientes);
+        }else{
         }
       },1000);
     },

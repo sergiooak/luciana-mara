@@ -65,6 +65,7 @@
 <style lang="css" scoped>
   .categorias{
     position: absolute;
-    top: 76px;
+    top: 30px;
+    left: 0px;
   }
 </style>

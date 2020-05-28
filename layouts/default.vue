@@ -4,6 +4,11 @@
     <fade-transition>
       <nuxt class="flex-1" />
     </fade-transition>
+    <div id="whatsapp">
+      <a href="https://api.whatsapp.com/send?phone=5534992141968" target="_blank">
+        <img src="https://lh3.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN" alt="Fale conosco pelo WhatsApp">
+      </a>
+    </div>
     <Footer />
   </div>
 </template>
@@ -60,5 +65,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  #whatsapp{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    z-index: 9999;
+    bottom: 25px;
+    right: 2px;
+    border-radius: 99px;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 </style>
