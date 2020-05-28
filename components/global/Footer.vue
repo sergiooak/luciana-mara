@@ -41,57 +41,42 @@
             <h6 class="uppercase text-mara">Menu 1</h6>
             <ul>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Quem Somos</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Blog</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Clientes</nuxt-link>
               </li>
             </ul>
           </div>
           <div class="w-1/3">
-            <h6 class="uppercase text-mara">Menu 1</h6>
+            <h6 class="uppercase text-mara">Atendimento</h6>
             <ul>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Nossas Politicas</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Entre em contato</nuxt-link>
               </li>
             </ul>
           </div><div class="w-1/3">
-            <h6 class="uppercase text-mara">Menu 1</h6>
+            <h6 class="uppercase text-mara">Minha Conta</h6>
             <ul>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Meu Cadastro</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="">Lorem Ipsum</nuxt-link>
+                <nuxt-link to="">Meus Pedidos</nuxt-link>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="container mx-auto border-t-2 border-mara mt-8 pt-8">
+      <!-- <div class="container mx-auto border-t-2 border-mara mt-8 pt-8">
         Informações de ssl e formas de pagamento
-      </div>
+      </div> -->
     </div>
     <footer class="bg-mara flex items-center text-center">
       <div class="container mx-auto font-bold">
