@@ -1,6 +1,6 @@
 const BASE_URL  = 'https://lucianamara.com.br';
 const API_URL   = 'https://wplucianamara1.websiteseguro.com'
-const TOKEN     = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3BsdWNpYW5hbWFyYTEud2Vic2l0ZXNlZ3Vyby5jb20iLCJpYXQiOjE1OTAxNjEyMDMsIm5iZiI6MTU5MDE2MTIwMywiZXhwIjoxNTkwNzY2MDAzLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.lx4UM48EoSQAaSstT9yKJx5mQD-xrrjF7_mZ58EAix4'
+const TOKEN     = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3BsdWNpYW5hbWFyYTEud2Vic2l0ZXNlZ3Vyby5jb20iLCJpYXQiOjE1OTEwMDAxMTAsIm5iZiI6MTU5MTAwMDExMCwiZXhwIjoxNTkxNjA0OTEwLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.mRlOWnAeN0c7DWzwDOBchoGGEuCNNNaE3O6qpUixrnQ'
 
 
 export const state = () => ({
