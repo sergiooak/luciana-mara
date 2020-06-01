@@ -33,7 +33,13 @@
             </div>
           </div>
           <div class="w-2/3">
-            Com mais de 10 anos de tradição, a Luciana Mara Estúdio de Costura traduz o conceito de alta costura e acabamentos diferenciados.  A Luciana Mara leva em conta os desejos e necessidades da mulher e do homem moderno.
+            <div>
+              Com mais de 10 anos de tradição, a <strong>Luciana Mara Estúdio de Costura</strong> traduz o conceito de alta costura e acabamentos diferenciados. A Luciana Mara leva em conta os desejos e necessidades da mulher e do homem moderno.
+            </div>
+            <div class="pt-4 mt-4 border-t-2 border-gray-800">
+              WhatsApp: (34) 99214-1968<br/>
+              E-mail: contato@luciamara.com.br<br/>
+            </div>
           </div>
         </div>
         <div class="w-1/2 flex">

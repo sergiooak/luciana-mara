@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="DropdownClientes" class="categorias bg-white shadow-lg p-4 w-64">
     <div class="-m-4">
-      <nuxt-link to="url(categoria.slug)"
+      <nuxt-link to="/nossos-clientes"
                   class="flex justify-between items-center hover:bg-astronaut transition-color duration-300 ease px-4 py-2 text-astronaut hover:text-white">
         <span>
           Nossos Clientes
