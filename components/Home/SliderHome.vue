@@ -43,22 +43,8 @@
         slides: [
           {
             titulo: 'Blusa Classic',
-            conteudo: 'Sub-título chamativo para explicar alguma novidade ou não!',
+            conteudo: 'Blusa feminina modelo classic',
             cta: 'Veja mais detalhes!',
-            ctaLink: '/uniforme/blusa-classic',
-            imagem: '/slider/slider-demo.png'
-          },
-          {
-            titulo: 'Lorem Ipsum',
-            conteudo: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            cta: 'cta',
-            ctaLink: '/uniforme/blusa-classic',
-            imagem: '/slider/slider-demo.png'
-          },
-          {
-            titulo: '3',
-            conteudo: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            cta: 'cta',
             ctaLink: '/uniforme/blusa-classic',
             imagem: '/slider/slider-demo.png'
           },
