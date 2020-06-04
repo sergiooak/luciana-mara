@@ -40,7 +40,6 @@
 
 <style lang="css" scoped>
   .vantagens{
-    z-index: +1;
     height: 75px;
     margin-top: calc(-75px / 2);
   }
