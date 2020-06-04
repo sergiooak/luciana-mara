@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Luciana Mara',
+    title: 'Luciana Mara - Estúdio de Costura',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -47,6 +47,9 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    ['nuxt-vuex-localstorage', {
+      localStorage: ['localStorage', 'categories', 'instagram', 'products', 'slider']
+    }]
   ],
   /*
   ** Axios module configuration

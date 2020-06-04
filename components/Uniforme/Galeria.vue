@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="galeria pl-4 pr-20">
     <div class="atual w-full bg-gray-300">
-      <img :src="fotos[currentFotoIndex].src" alt="">
+      <img :src="safeSRC(fotos[currentFotoIndex])" alt="">
     </div>
     <footer class="flex flex-wrap -mx-2">
       <div v-for="foto in fotos" class="thumb w-1/4 px-2 mt-4">
-        <img :src="foto.src" alt="">
+        <img :src="safeSRC(foto)" alt="">
       </div>
     </footer>
   </div>
@@ -25,6 +25,11 @@ export default {
     },
     currentFoto() {
       return this.fotos[this.currentFotoIndex]
+    }
+  },
+  methods: {
+    safeSRC(photo){
+      return photo ? photo.src : 'https://res.cloudinary.com/luciana-mara/image/upload/c_thumb,g_face,w_288,h_400,y_0,z_0.25/c_scale,l_logos:overlay,o_07,w_0.5,fl_tiled/woocommerce/8-DSC_7944.png'
     }
   }
 }

@@ -37,7 +37,7 @@ export default {
       return `/uniforme/${slug}`
     },
     thumb(images){
-      let id = images[0].src;
+      let id = images[0] ? images[0].src : 'https://res.cloudinary.com/luciana-mara/image/upload/c_thumb,g_face,w_288,h_400,y_0,z_0.25/c_scale,l_logos:overlay,o_07,w_0.5,fl_tiled/woocommerce/8-DSC_7944.png' ;
       id = `woocommerce${id.split('woocommerce')[1].split('.')[0]}`;
       let transforms = 'c_thumb,g_face,w_288,h_400,y_0,z_0.25/c_scale,l_logos:overlay,o_07,w_0.5,fl_tiled';
       let extension = "png";

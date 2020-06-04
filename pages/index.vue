@@ -23,7 +23,7 @@ export default {
     Destaques,
     Categorias,
     Instagram
-  }
+  },
 }
 </script>
 
