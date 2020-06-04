@@ -38,7 +38,7 @@
             </div>
             <div class="pt-4 mt-4 border-t-2 border-gray-800">
               WhatsApp: (34) 99214-1968<br/>
-              E-mail: contato@luciamara.com.br<br/>
+              E-mail: vendas@lucianamaraestudio.com.br<br/>
             </div>
           </div>
         </div>
