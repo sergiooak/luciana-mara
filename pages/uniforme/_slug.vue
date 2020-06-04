@@ -18,7 +18,7 @@
               até 6x de 000*
             </small>
           </h2>
-          <button class="border-2 border-astronaut px-6 py-4 my-4 uppercase text-astronaut">
+          <button @click.prevent="addToCart()" class="border-2 border-astronaut px-6 py-4 my-4 uppercase text-astronaut">
             Adicionar ao carrinho
           </button>
           <div>
@@ -56,9 +56,9 @@
         </div>
       </div>
     </main>
-    <div class="container mx-auto bg-red-200 text-red-800 font-bold">
+    <!-- <div class="container mx-auto bg-red-200 text-red-800 font-bold">
       {{ pedido }}
-    </div>
+    </div> -->
     <!-- <section>
       <div class="container mx-auto">
         <HeadingSection title="Produtos Relacionados" />
@@ -80,7 +80,7 @@
     data() {
       return {
         pedido: {
-          id: 0,
+          product: null,
           qtd: 1,
           tamanho: ''
         }
@@ -90,7 +90,7 @@
       let payload = this.$route.params.slug;
       this.$store.dispatch("products/retrieveSingle", payload);
 
-      this.pedido.id = this.product.id;
+      this.pedido.product = this.product;
       this.pedido.tamanho = this.product.attributes[0].options[0];
     },
     computed: {
@@ -101,6 +101,11 @@
         return this.$store.state.products.current.item;
       },
     },
+    methods: {
+      addToCart(){
+        this.$store.dispatch("cart/add", this.pedido);
+      }
+    }
   }
 </script>
 

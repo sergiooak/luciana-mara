@@ -1,10 +1,10 @@
 <template lang="html">
-  <div class="carrinho flex items-center cursor-pointer">
+  <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')">
     <div class="valor-carrinho text-astronaut mr-4">
       R$ 000,00
     </div>
     <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer text-astronaut">
-      {{ items }}
+      {{ cart.length }}
     </div>
   </div>
 </template>
@@ -16,7 +16,12 @@
       return {
         items: 0
       }
-    }
+    },
+    computed: {
+      cart(){
+        return this.$store.state.cart.items;
+      },
+    },
   }
 </script>
 
