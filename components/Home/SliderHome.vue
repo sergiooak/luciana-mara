@@ -37,7 +37,7 @@
     },
     data() {
       return {
-        loading: true,
+        loading: false,
         trocandoSlide: false,
         currentSlideIndex: 0,
         slides: [
@@ -82,11 +82,6 @@
       }
     },
     mounted() {
-      // TODO: resquest real api
-      let vm = this;
-      setTimeout(function () {
-        vm.loading = false;
-      }, 1000);
     }
   }
 </script>
