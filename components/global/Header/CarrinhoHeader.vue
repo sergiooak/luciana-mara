@@ -24,7 +24,7 @@
       valorTotal(){
         let total = 0
         for (var item of this.cart) {
-          total = parseFloat(parseFloat(total) + parseFloat(item.product.price)).toFixed(2);
+          total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
         }
         return total;
       }
