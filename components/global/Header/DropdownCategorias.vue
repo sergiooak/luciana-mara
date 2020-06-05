@@ -30,7 +30,7 @@
     <footer class="border-t-2 border-gray-300 -m-4 mt-4">
       <nuxt-link to="/uniformes" class="flex justify-between items-center hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
         <span>
-          Ver todos os uniformes
+          Ver todos os produtos
         </span>
       </nuxt-link>
     </footer>
