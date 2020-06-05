@@ -1,58 +1,35 @@
 <template lang="html">
   <div class="">
-    <HeadingSection class="mt-8 mb-16" title="Checkout" />
+    <HeadingSection class="mt-8 mb-16" title="Financeiro" />
+    <header class="py-12 text-center text-xl">
+      O pagamento é processado pela PagSeguro
+    </header>
     <div class="container mx-auto flex items-start px-4 mb-12">
       <main class="w-8/12 container mx-auto flex justify-center flex-wrap pr-8">
         <form class="w-full -mt-4">
           <div>
             <label class="block w-full">
-              <span class="text-gray-700">E-mail</span>
-              <input class="form-input mt-1 block w-full px-4 py-2">
-            </label>
-          </div>
-          <div class="flex w-full mt-4">
-            <label class="block mr-2 w-full">
-              <span class="text-gray-700">Nome</span>
-              <input class="form-input mt-1 block w-full px-4 py-2">
-            </label>
-            <label class="block ml-2 w-full">
-              <span class="text-gray-700">Sobrenome</span>
-              <input class="form-input mt-1 block w-full px-4 py-2">
-            </label>
-          </div>
-          <div class="flex w-full mt-8 pt-4 border-t-2 border-gray-400">
-            <label class="block mr-2 w-full">
-              <span class="text-gray-700">Endereço</span>
-              <input class="form-input mt-1 block w-full px-4 py-2">
-            </label>
-            <label class="block ml-2 w-full">
               <span class="text-gray-700">Número</span>
               <input class="form-input mt-1 block w-full px-4 py-2">
             </label>
           </div>
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
-              <span class="text-gray-700">Bairro</span>
-              <input class="form-input mt-1 block w-full px-4 py-2">
-            </label>
-            <label class="block ml-2 w-full">
-              <span class="text-gray-700">Cidade</span>
+              <span class="text-gray-700">Nome (como impresso no cartão)</span>
               <input class="form-input mt-1 block w-full px-4 py-2">
             </label>
           </div>
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
-              <span class="text-gray-700">CEP</span>
+              <span class="text-gray-700">Mes</span>
               <input class="form-input mt-1 block w-full px-4 py-2">
             </label>
-          </div>
-          <div class="flex w-full mt-8 pt-4 border-t-2 border-gray-400">
-            <label class="block mr-2 w-full">
-              <span class="text-gray-700">Endereço</span>
+            <label class="block ml-2 mr-2 w-full">
+              <span class="text-gray-700">Ano</span>
               <input class="form-input mt-1 block w-full px-4 py-2">
             </label>
             <label class="block ml-2 w-full">
-              <span class="text-gray-700">Número</span>
+              <span class="text-gray-700">CVV</span>
               <input class="form-input mt-1 block w-full px-4 py-2">
             </label>
           </div>
