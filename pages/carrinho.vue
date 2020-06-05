@@ -47,7 +47,7 @@
           </div>
         </div>
         <footer>
-          <button type="button" name="button" class="bg-astronaut uppercase text-white w-full p-4 text-center ">
+          <button type="button" name="button" class="bg-astronaut uppercase text-white w-full p-4 text-center" @click="$router.push('/checkout')">
             Fazer checkout
           </button>
         </footer>
