@@ -101,10 +101,6 @@
                 slug: 'camisa-polo-feminino',
               },
               {
-                titulo: 'Casaco',
-                slug: 'casaco-feminino',
-              },
-              {
                 titulo: 'Jaleco',
                 slug: 'jaleco-feminino',
               },

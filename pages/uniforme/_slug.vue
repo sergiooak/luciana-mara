@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="wrapper pt-8">
-    <main v-if="!loading" class="container mx-auto">
+    <main v-if="!loading" class="container mx-auto mb-12">
       <div class="wrapper w-10/12 mx-auto flex">
         <div class="w-1/2">
           <Galeria v-if="product.slug == $route.params.slug" />
@@ -9,13 +9,13 @@
           <h1 class="text-astronaut text-4xl mb-4">{{ product.name }}</h1>
           <h2 class="valor flex flex-col text-mara text-4xl">
             <div class="flex items-center ">
-              {{ product.price }}
+              {{ real(product.price) }}
               <div class="ml-2 text-xl text-astronaut" v-show="pedido.qtd > 1">
-                x {{ pedido.qtd }} = {{ parseFloat(product.price * pedido.qtd).toFixed(2) }}
+                x {{ pedido.qtd }} = {{ real(parseFloat(product.price * pedido.qtd).toFixed(2)) }}
               </div>
             </div>
             <small class="text-sm text-gray-600">
-              até 6x de 000*
+              até 3x de {{ real(parseFloat(product.price / 3).toFixed(2)) }}*
             </small>
           </h2>
           <button @click.prevent="addToCart()" class="border-2 border-astronaut px-6 py-4 my-4 uppercase text-astronaut">
@@ -24,22 +24,22 @@
           <div>
             <div class="detalhes">
               <div class="description flex items-center justify-between py-4 border-t-2 border-gray-300">
-                <header class="text-lg text-astronaut">
+                <header class="text-lg text-astronaut mr-6">
                   Descrição:
-                </header class="text-lg text-astronaut">
+                </header class="text-lg text-astronaut mr-6">
                 <div class="content" v-html="product.description">
                 </div>
               </div>
               <div class="quantidade flex items-center justify-between py-4 border-t-2 border-gray-300">
-                <header class="text-lg text-astronaut">
+                <header class="text-lg text-astronaut mr-6">
                   Quantidade:
-                </header class="text-lg text-astronaut">
+                </header class="text-lg text-astronaut mr-6">
                 <div class="content">
                   <input class="form-input px-4 py-2 text-center" type="number" v-model="pedido.qtd">
                 </div>
               </div>
               <div class="attributes flex items-center justify-between py-4 border-t-2 border-gray-300">
-                <header class="text-lg text-astronaut">
+                <header class="text-lg text-astronaut mr-6">
                   Tamanhos:
                 </header>
                 <div v-if="product.attributes" class="content flex">
@@ -104,6 +104,9 @@
     methods: {
       addToCart(){
         this.$store.dispatch("cart/add", this.pedido);
+      },
+      real(valor){
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor)
       }
     }
   }

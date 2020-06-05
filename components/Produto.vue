@@ -10,11 +10,11 @@
         <span class="categoria text-gray-900 text-sm">
           {{ categoria }}
         </span>
-        <h4 class="text-xl text-astronaut -mt-1">
+        <h4 class="text-xl text-astronaut -mt-1 leading-none mb-2">
           {{ titulo }}
         </h4>
         <p class="preco text-lg text-mara">
-          {{ preco }}
+          {{ real(preco) }}
         </p>
       </div>
     </nuxt-link>
@@ -33,6 +33,9 @@ export default {
     'product'
   ],
   methods: {
+    real(valor){
+      return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor)
+    },
     url(slug) {
       return `/uniforme/${slug}`
     },
