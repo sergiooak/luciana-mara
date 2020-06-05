@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')">
     <div class="valor-carrinho text-astronaut mr-4">
-      R$ 000,00
+      {{ real(valorTotal) }}
     </div>
     <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer text-astronaut">
       {{ cart.length }}
@@ -21,7 +21,19 @@
       cart(){
         return this.$store.state.cart.items;
       },
+      valorTotal(){
+        let total = 0
+        for (var item of this.cart) {
+          total = parseFloat(parseFloat(total) + parseFloat(item.product.price)).toFixed(2);
+        }
+        return total;
+      }
     },
+    methods: {
+      real(valor){
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor)
+      }
+    }
   }
 </script>
 
