@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="galeria pl-4 pr-20">
+  <div class="galeria md:pl-4 md:pr-20">
     <div class="atual w-full bg-gray-300">
       <img :src="safeSRC(fotos[currentFotoIndex])" alt="">
     </div>
@@ -36,7 +36,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .atual{
-    min-height: 544px;
-  }
 </style>
