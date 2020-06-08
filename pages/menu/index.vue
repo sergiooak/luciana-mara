@@ -37,6 +37,11 @@
         </div>
         <div class="flex flex-col items-center mt-4 border-t-2 border-gray-400 pt-4">
           <h1>Clientes</h1>
+          <nuxt-link to="/nossos-clientes" class="flex justify-between items-center hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
+            <span>
+              Nossos Clientes
+            </span>
+          </nuxt-link>
           <footer class="border-2 border-gray-300 -m-4 mt-4 mb-4">
             <nuxt-link to="/menu/acesso-restrito" class="flex justify-between items-center hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
               <span>
