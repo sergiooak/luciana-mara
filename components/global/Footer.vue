@@ -2,7 +2,7 @@
   <footer class="bg-black flex flex-col text-white">
     <div class="flex-1 flex flex-col justify-center">
       <div class="container mx-auto flex flex-col md:flex-row justify-between">
-        <div class="w-3/4 flex flex-col md:flex-row md:pr-8">
+        <div class="md:w-3/4 flex flex-col md:flex-row md:pr-8">
           <div class="md:w-1/3 mb-4 md:mb-0 flex flex-col justify-center items-center">
             <nuxt-link to="/" class="hidden md:block">
               <img src="/logo/logo-vertical-fundo-escuro.svg" style="height: 100px;" alt="Luciana Mara - Estúdio de Costura">
