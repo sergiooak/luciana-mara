@@ -6,7 +6,7 @@
           <Galeria v-if="product.slug == $route.params.slug" />
         </div>
         <div class="w-full md:w-1/2 mt-8 md:mt-0">
-          <h1 class="text-astronaut text-4xl md:mb-4">{{ product.name }}</h1>
+          <h1 class="text-astronaut text-4xl md:mb-4 leading-none">{{ product.name }}</h1>
           <h2 class="valor flex flex-col text-mara text-2xl md:text-4xl">
             <div class="flex items-center ">
               {{ real(product.price) }}
@@ -24,25 +24,25 @@
           <div>
             <div class="detalhes">
               <div class="description flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
-                <header class="text-lg text-astronaut mr-6">
+                <header class="text-lg text-astronaut md:mr-6">
                   Descrição:
-                </header class="text-lg text-astronaut mr-6">
+                </header>
                 <div class="content" v-html="product.description">
                 </div>
               </div>
               <div class="quantidade flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
-                <header class="text-lg text-astronaut mr-6">
+                <header class="text-lg text-astronaut md:mr-6">
                   Quantidade:
-                </header class="text-lg text-astronaut mr-6">
+                </header>
                 <div class="content">
                   <input class="form-input px-4 py-2 text-center" type="number" v-model="pedido.qtd">
                 </div>
               </div>
-              <div class="attributes flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
-                <header class="text-lg text-astronaut mr-6">
+              <div v-if="product.attributes[0]" class="attributes flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
+                <header class="text-lg text-astronaut md:mr-6">
                   Tamanhos:
                 </header>
-                <div v-if="product.attributes" class="content flex flex-wrap">
+                <div class="content flex flex-wrap">
                   <div @click="pedido.tamanho = tamanho"
                   :class="{ active: pedido.tamanho == tamanho }"
                   class="h-10 w-10 border-2 border-astronaut text-astronaut flex items-center justify-center ml-2 hover:bg-astronaut hover:text-white cursor-pointer mb-2"
@@ -91,7 +91,9 @@
       this.$store.dispatch("products/retrieveSingle", payload);
 
       this.pedido.product = this.product;
-      this.pedido.tamanho = this.product.attributes[0].options[0];
+      if (this.product.attributes[0]) {
+        this.pedido.tamanho = this.product.attributes[0].options[0];
+      }
     },
     computed: {
       loading(){
