@@ -55,10 +55,14 @@
     },
     computed: {
       products(){
-        return this.$store.state.products.trending.items;
+        if(this.$store.state.products.trending){
+          return this.$store.state.products.trending.items
+        }else{
+          return [];
+        }
       },
       isLoading(){
-        return this.$store.state.products.trending.loading;
+        return this.$store.state.products ? this.$store.state.products.trending.loading : true;
       }
     },
     mounted: function (){

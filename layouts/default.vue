@@ -2,7 +2,7 @@
   <div class="site-wrapper">
     <Header />
     <fade-transition>
-      <nuxt class="flex-1" />
+      <nuxt class="flex-1 pt-20" />
     </fade-transition>
     <div id="whatsapp">
       <a href="https://api.whatsapp.com/send?phone=5534992141968" target="_blank">

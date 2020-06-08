@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white border-t-4 border-mara shadow-lg relative">
+  <header class="bg-white border-t-4 border-mara shadow-lg fixed w-full md:relative">
     <div class="container mx-auto flex justify-between h-full items-center px-4 md:px-0">
       <div class="md:hidden">
         P

@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="">
-    <HeadingSection class="mt-8 mb-16" title="Checkout" />
-    <div class="container mx-auto flex items-start px-4 mb-12">
-      <main class="w-8/12 container mx-auto flex justify-center flex-wrap pr-8">
+    <HeadingSection class="mt-8 mb-8" title="Checkout" />
+    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12">
+      <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
         <form class="w-full -mt-4">
           <div>
             <label class="block w-full">
@@ -58,7 +58,7 @@
           </div>
         </form>
       </main>
-      <aside class="w-4/12 bg-white">
+      <aside class="w-full md:w-4/12 mt-8 md:mt-0 bg-white">
         <header class="p-4 uppercase">
           Seu pedido:
         </header>
@@ -94,7 +94,7 @@
         </div>
       </aside>
     </div>
-    <div class="container mx-auto mb-12">
+    <div class="container mx-auto mb-12 flex justify-center md:justify-start">
       <nuxt-link to='/checkout/financeiro' class="px-4 py-2 uppercase text-white bg-astronaut">
         Continuar para o financeiro
       </nuxt-link>

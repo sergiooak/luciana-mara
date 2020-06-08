@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="">
-    <HeadingSection class="mt-8 mb-16" title="Financeiro" />
-    <header class="py-12 text-center text-xl">
+    <HeadingSection class="mt-8 mb-8" title="Financeiro" />
+    <header class="py-8 text-center text-xl">
       O pagamento é processado pela PagSeguro
     </header>
-    <div class="container mx-auto flex items-start px-4 mb-12">
-      <main class="w-8/12 container mx-auto flex justify-center flex-wrap pr-8">
+    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12">
+      <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
         <form class="w-full -mt-4">
           <div>
             <label class="block w-full">
@@ -35,7 +35,7 @@
           </div>
         </form>
       </main>
-      <aside class="w-4/12 bg-white">
+      <aside class="w-full md:w-4/12 bg-white mt-8 md:mt-0">
         <header class="p-4 uppercase">
           Seu pedido:
         </header>
@@ -71,7 +71,7 @@
         </div>
       </aside>
     </div>
-    <div class="container mx-auto mb-12">
+    <div class="container mx-auto mb-12 flex justify-center md:justify-start">
       <nuxt-link to='/' class="px-4 py-2 uppercase text-astronaut border-2 border-astronaut">
         Voltar para a loja
       </nuxt-link>
