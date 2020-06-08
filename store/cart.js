@@ -24,6 +24,7 @@ export const actions = {
       tamanho: payload.tamanho
     }
     context.commit("add", obj);
+    $nuxt._router.push('/carrinho')
   },
   remove(context, uniqueId) {
 
