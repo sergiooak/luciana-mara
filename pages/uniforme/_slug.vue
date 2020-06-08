@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="wrapper pt-8">
-    <main v-if="!loading" class="container mx-auto mb-12">
+    <main v-if="!loading" class="container mx-auto mb-12 pt-8">
       <div class="wrapper w-10/12 mx-auto flex flex-col md:flex-row">
         <div class="w-full md:w-1/2">
           <Galeria v-if="product.slug == $route.params.slug" />

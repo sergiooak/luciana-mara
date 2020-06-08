@@ -3,9 +3,9 @@
     <div class="atual w-full bg-gray-300">
       <img :src="safeSRC(fotos[currentFotoIndex])" alt="">
     </div>
-    <footer class="flex flex-wrap -mx-2">
-      <div v-for="foto in fotos" class="thumb w-1/4 px-2 mt-4">
-        <img :src="safeSRC(foto)" alt="">
+    <footer class="flex flex-wrap -mx-2" v-if="fotos.length > 1">
+      <div v-for="(foto, index) in fotos" class="thumb w-1/4 px-2 mt-4">
+        <img :src="safeSRC(foto)" alt="" @click="currentFotoIndex = index">
       </div>
     </footer>
   </div>

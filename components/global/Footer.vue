@@ -67,7 +67,8 @@
                 <nuxt-link to="/contato">Entre em contato</nuxt-link>
               </li>
             </ul>
-          </div><div class="w-1/2 md:w-1/3 hidden md:block">
+          </div>
+          <!-- <div class="w-1/2 md:w-1/3 hidden md:block">
             <h6 class="uppercase text-mara mb-4 text-center md:text-left">Minha Conta</h6>
             <ul>
               <li class="mb-2 text-center md:text-left">
@@ -77,7 +78,7 @@
                 <nuxt-link to="">Meus Pedidos</nuxt-link>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- <div class="container mx-auto border-t-2 border-mara mt-8 pt-8">
