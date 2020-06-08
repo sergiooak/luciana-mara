@@ -1,5 +1,8 @@
 <template lang="html">
-  <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')">
+  <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')"
+        v-if="typeof cart !== 'undefined'">
+    <!-- Fix the bug whit localStorage -->
+    <!-- <span @click="resetCart()">Reset</span> -->
     <div class="valor-carrinho text-astronaut mr-4">
       {{ real(valorTotal) }}
     </div>
@@ -23,15 +26,18 @@
       },
       valorTotal(){
         let total = 0
-        for (var item of this.cart) {
-          total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
-        }
+        // for (var item of this.cart) {
+        //   total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
+        // }
         return total;
       }
     },
     methods: {
       real(valor){
         return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor)
+      },
+      resetCart(){
+        this.$store.dispatch("cart/reset");
       }
     }
   }

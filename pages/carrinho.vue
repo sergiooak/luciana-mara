@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="">
     <HeadingSection class="mt-8 mb-16" title="Carrinho" />
-    <div class="container mx-auto flex items-start px-4 mb-12">
-      <main class="w-8/12 container mx-auto flex justify-center flex-wrap pr-8 border-b-2 border-gray-400">
+    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12">
+      <main class="md:w-8/12 container mx-auto flex justify-center flex-wrap pr-8 border-b-2 border-gray-400">
         <!-- {{ cart }} -->
         <table class="w-full">
           <thead>
