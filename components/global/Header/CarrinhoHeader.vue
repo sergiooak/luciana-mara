@@ -1,13 +1,15 @@
 <template lang="html">
-  <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')"
-        v-if="typeof cart !== 'undefined'">
+  <div class="wrapper">
     <!-- Fix the bug whit localStorage -->
     <!-- <span @click="resetCart()">Reset</span> -->
-    <div class="valor-carrinho text-astronaut mr-4">
-      {{ real(valorTotal) }}
-    </div>
-    <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer text-astronaut">
-      {{ cart.length }}
+    <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')"
+         v-if="typeof cart !== 'undefined'">
+      <div class="valor-carrinho text-astronaut mr-4">
+        {{ real(valorTotal) }}
+      </div>
+      <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer text-astronaut">
+        {{ cart.length }}
+      </div>
     </div>
   </div>
 </template>
@@ -26,9 +28,11 @@
       },
       valorTotal(){
         let total = 0
-        // for (var item of this.cart) {
-        //   total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
-        // }
+        if (typeof this.cart !== 'undefined') {
+          for (var item of this.cart) {
+            total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
+          }
+        }
         return total;
       }
     },
