@@ -48,6 +48,13 @@
             ctaLink: '/uniforme/blusa-classic',
             imagem: '/slider/slider-demo.png'
           },
+          {
+            titulo: 'Jalecos femininos',
+            conteudo: 'Vários modelos de jalecos a pronta entrega',
+            cta: 'Compre agora',
+            ctaLink: 'https://whats.link/lucianamara',
+            imagem: 'https://res.cloudinary.com/luciana-mara/image/upload/v1590429023/woocommerce/IMG_7887-1.jpg'
+          },
         ]
       }
     },

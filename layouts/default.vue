@@ -72,8 +72,8 @@
     width: 50px;
     height: 50px;
     z-index: 9999;
-    bottom: 25px;
-    right: 2px;
+    bottom: 20px;
+    right: 20px;
     border-radius: 99px;
     overflow: hidden;
     border: 3px solid white;
