@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="container mx-auto flex justify-center relative">
-    <h2 class="font-be text-center border-2 border-astronaut inline-flex items-center justify-center px-8 uppercase text-astronaut">
+    <h2 class="font-be text-center border-2 border-astronaut inline-flex items-center justify-center px-4 md:px-8 uppercase text-astronaut">
       {{ title }}
     </h2>
   </div>
@@ -15,7 +15,7 @@ export default {
 <style lang="css" scoped>
   h2{
     height: 48px;
-    min-width: 320px;
+    min-width: 280px;
     font-size: 26px;
     line-height: 26px;
     padding-top: 3px;
