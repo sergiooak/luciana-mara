@@ -2,22 +2,38 @@
   <div class="">
     <HeadingSection class="mt-8 mb-8 text-center" title="Nossas Politicas" />
 
-    <main class="container mx-auto flex items-start flex-wrap items-center mb-16">
-      <div class="w-full text-center">
-        Utilize o menu ao lado para navegar entre nossas politicas
+    <main class="container mx-auto flex flex-col md:flex-row items-start flex-wrap mb-16">
+      <div class="px-4 md:px-0 md:w-full text-center">
+        Consulte nossa politicas
       </div>
-      <div class="w-1/4 flex items-start">
-        a
+      <div class="px-4 md:px-0 md:w-1/4 flex flex-col justify-center items-center md:pr-8">
+        <ul>
+          <li :class = "{active: tab == 'trocas'}" class="border-2 border-b-0 border-astronaut hover:bg-astronaut hover:text-white cursor-pointer px-4 py-2" @click="tab = 'trocas'">
+            Trocas
+          </li>
+          <li :class = "{active: tab == 'pag'}" class="border-2 border-b-0 border-astronaut hover:bg-astronaut hover:text-white cursor-pointer px-4 py-2" @click="tab = 'pag'">
+            Forma de pagamento
+          </li>
+          <li :class = "{active: tab == 'prazo'}" class="border-2 border-b-0 border-astronaut hover:bg-astronaut hover:text-white cursor-pointer px-4 py-2" @click="tab = 'prazo'">
+            Prazo de Entrega
+          </li>
+          <li :class = "{active: tab == 'priv'}" class="border-2 border-b-0 border-astronaut hover:bg-astronaut hover:text-white cursor-pointer px-4 py-2" @click="tab = 'priv'">
+            Privacidade e Segurança
+          </li>
+          <li :class = "{active: tab == 'inds'}" class="border-2 border-astronaut hover:bg-astronaut hover:text-white cursor-pointer px-4 py-2" @click="tab = 'inds'">
+            Produto indisponível
+          </li>
+        </ul>
       </div>
-      <div class="w-3/4">
-      <section>
+      <div class="px-4 md:px-0 md:w-3/4">
+      <section v-if="tab == 'trocas'">
         <HeadingSection class="mt-8 mb-16" title="Trocas" />
         Para garantir seus direitos, nossa política de trocas é inteiramente de acordo com o Código de Defesa do Consumidor.<br class="bbs_check_inside_view" />Para efetuar uma troca ou devolução você deverá comunicar primeiramente à nossa central de atendimento, através do telefone (34) 984079525 e e-mail: vendas@lucianamara.com.br que vai orientar sobre o procedimento de logística reversa através dos Correios. Produtos reenviados sem autorização prévia de nossa central serão devolvidos ao cliente.<br class="bbs_check_inside_view" />Clientes de Uberlândia e região poderão realizar trocas e devoluções com prévia autorização da Central de atendimento em nosso endereço físico:<br class="bbs_check_inside_view" />Rua Tapuirama, 510, Bairro Osvaldo Resende<br class="bbs_check_inside_view" />Uberlândia- MG CEP 38400-436<br class="bbs_check_inside_view" />O prazo de troca varia de acordo com a disponibilidade de estoque e prazo dos correios.<br class="bbs_check_inside_view" /><br class="bbs_check_inside_view" /><strong class="bbs_check_inside_view">TROCA DE PRODUTO COM DEFEITO</strong><br class="bbs_check_inside_view" />A ocorrência de produto com defeito deverá ser comunicada em até 10 (trinta) dias a contar do recebimento das peças, devendo obrigatoriamente ser respeitadas as seguintes condições:<br class="bbs_check_inside_view" />• Produto com defeito aparente deverá estar sem nenhuma intervenção que implique na depreciação da peça, acompanhados de nota fiscal (danfe) e etiquetas;<br class="bbs_check_inside_view" />• A mercadoria será avaliada e no prazo máximo de 30 dias será apresentado uma solução;<br class="bbs_check_inside_view" />Despesas de devolução e reenvio autorizadas, serão pagas pela Luciana Mara. Iremos encaminhar uma autorização de postagem por e-mail com validade de 5(cinco) dias para que você possa nos reenviar o produto através de uma agência própria dos correios. O produto deverá estar previamente embalado.<br class="bbs_check_inside_view" />A Luciana Mara não se responsabiliza pelo fornecimento da embalagem de retorno das peças.<br class="bbs_check_inside_view" /><br class="bbs_check_inside_view" /><strong class="bbs_check_inside_view">TROCA DE TAMANHO, COR OU MODELO</strong><br class="bbs_check_inside_view" />A intenção de troca deverá ser comunicada em até 7 dias corridos a contar a partir do recebimento da mercadoria, devendo o produto não apresentar sinais de uso, ajustes e ou lavagem e estar em perfeitas condições , e deverá conter a etiqueta.<br class="bbs_check_inside_view" />Para efetuar uma troca ou devolução você deverá comunicar primeiramente à nossa central de atendimento, através do telefone (34) 98407-9525 e e-mail: vendas@lucianamara.com.br que vai orientar sobre o procedimento de logística reversa através dos Correios.<br class="bbs_check_inside_view" /><br class="bbs_check_inside_view" /><strong class="bbs_check_inside_view">PRECAUÇÕES</strong><br class="bbs_check_inside_view" />Toda mercadoria devera ser conferida no ato da entrega<br class="bbs_check_inside_view" />Recuse produtos em embalagens abertas ou produtos avariados<br class="bbs_check_inside_view" />Entre em contato imediatamente com nossa central de atendimento. Através do telefone (34)3231-9696 ou e-mail vendas@lucianamara.com.br
       </section>
 
 
 
-      <section>
+      <section v-if="tab == 'pag'">
         <HeadingSection class="mt-8 mb-16" title="Forma de pagamento" />
         Aceitamos os cartões de crédito das bandeiras: Visa, Mastercar, Elo, Aura, American Express e Hiper para pagamentos em até 6x, com prazo de aprovação de até 48 horas úteis.
 
@@ -43,7 +59,7 @@ Aconselhamos a não usar computadores públicos para efetuar esse tipo de transa
 
 
 
-      <section>
+      <section v-if="tab == 'prazo'">
         <HeadingSection class="mt-8 mb-16" title="Prazo de Entrega" />
         O prazo de entrega varia de acordo com a cidade e o estado e o tipo de frete escolhido na hora da compra. Esse prazo começa a ser contar a partir da confirmação do pagamento pela instituição financeira. Será considerado o prazo de entrega somente dias úteis.
 
@@ -68,7 +84,7 @@ Serão realizadas até 3 tentativas de entregas, e caso nenhuma delas tenha suce
       </section>
 
 
-      <section>
+      <section v-if="tab == 'priv'">
         <HeadingSection class="mt-8 mb-16" title="Privacidade e Segurança" />
         Todas as transações de pagamentos são executadas com tecnologia de segurança.<br/>
 
@@ -78,7 +94,7 @@ Serão realizadas até 3 tentativas de entregas, e caso nenhuma delas tenha suce
       </section>
 
 
-      <section>
+      <section v-if="tab == 'inds'">
         <HeadingSection class="mt-8 mb-16" title="Produto indisponível" />
         A Luciana Mara possui um estoque limitado dos produtos. A qualquer momento estes produtos podem se esgotar, para isso disponibilizamos o serviço de encomenda. Ao se cadastrar em algum item com este serviço, você receberá de forma automática um e-mail com orientações para solicitar as peças por encomenda.
 
@@ -102,7 +118,7 @@ export default {
   },
   data: function (){
     return {
-      tab: 'pagamento'
+      tab: 'trocas'
     }
   },
   methods: {
@@ -117,4 +133,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.active{
+  @apply bg-astronaut text-white;
+}
 </style>
