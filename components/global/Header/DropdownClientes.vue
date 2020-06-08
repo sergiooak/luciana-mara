@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="DropdownClientes" class="categorias bg-white shadow-lg p-4 w-64">
-    <div class="-m-4">
+    <div class="-m-4" @click="fechaClientes()">
       <nuxt-link to="/nossos-clientes"
                   class="flex justify-between items-center hover:bg-astronaut transition-color duration-300 ease px-4 py-2 text-astronaut hover:text-white">
         <span>
@@ -18,27 +18,27 @@
         <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
       </div>
       <slide-y-up-transition>
-        <div v-show="mostraRestrito" id="listaClientes" class="w-64 absolute flex flex-col">
-          <a class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white" href="http://www.lucianamarquesuniformes.com.br/unimed/" target="_blank">
+        <div v-show="mostraRestrito" id="listaClientes" class="w-64 absolute flex flex-col" @click="fechaClientes()">
+          <nuxt-link to="/acesso-restrito/unimed" class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
             <span>
               Unimed
             </span>
-          </a>
-          <a class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white" href="http://www.lucianamarquesuniformes.com.br/sabin/" target="_blank">
+          </nuxt-link>
+          <nuxt-link to="/acesso-restrito/sabin" class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
             <span>
               Sabin
             </span>
-          </a>
-          <a class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white" href="http://www.lucianamarquesuniformes.com.br/agendamento-do-monstruario/" target="_blank">
+          </nuxt-link>
+          <nuxt-link to="/acesso-restrito/agendamento" class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
             <span>
               Agendamento do Mostruario
             </span>
-          </a>
-          <a class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white" href="http://www.lucianamarquesuniformes.com.br/download/" target="_blank">
+          </nuxt-link>
+          <nuxt-link to="/acesso-restrito/download" class="flex justify-between items-center bg-white hover:bg-astronaut transition duration-300 ease p-4 text-astronaut hover:text-white">
             <span>
               Download
             </span>
-          </a>
+          </nuxt-link>
         </div>
       </slide-y-up-transition>
     </footer>
@@ -61,6 +61,9 @@
     methods:{
       url(slug){
         return `/categoria/${slug}`
+      },
+      fechaClientes(){
+        this.$emit('fechaClientes')
       }
     },
     computed: {

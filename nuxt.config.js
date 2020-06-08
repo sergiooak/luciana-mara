@@ -15,6 +15,13 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
     ]
   },
+  pwa: {
+    manifest: {
+      name: 'Luciana Mara Estúdio de Costura',
+      short_name: "Luciana Mara",
+      lang: 'pt-BR'
+    }
+  },
   /*
   ** Customize the progress-bar color
   */

@@ -14,7 +14,7 @@ export const actions = {
   retrieve(context, $axios) {
     var vm = this
     vm.$axios
-      .$get(`https://www.instagram.com/lucianamarquesuniformes/?__a=1`)
+      .$get(`https://www.instagram.com/lucianamaraestudio/?__a=1`)
       .then(function(res) {
           context.commit("toggle", res.graphql.user.edge_owner_to_timeline_media.edges);
       })
