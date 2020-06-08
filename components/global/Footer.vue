@@ -1,13 +1,13 @@
 <template>
   <footer class="bg-black flex flex-col text-white">
     <div class="flex-1 flex flex-col justify-center">
-      <div class="container mx-auto flex justify-between">
-        <div class="w-3/4 flex pr-8">
-          <div class="w-1/3 flex flex-col justify-center items-center">
-            <nuxt-link to="/">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between">
+        <div class="w-3/4 flex flex-col md:flex-row md:pr-8">
+          <div class="md:w-1/3 mb-4 md:mb-0 flex flex-col justify-center items-center">
+            <nuxt-link to="/" class="hidden md:block">
               <img src="/logo/logo-vertical-fundo-escuro.svg" style="height: 100px;" alt="Luciana Mara - Estúdio de Costura">
             </nuxt-link>
-            <div class="mt-4">
+            <div class="md:mt-4">
               <ul class="flex">
                 <li class="mr-2">
                   <a href="https://www.instagram.com/lucianamara/" target="_blank">
@@ -32,48 +32,48 @@
               </ul>
             </div>
           </div>
-          <div class="w-2/3">
-            <div>
+          <div class="md:w-2/3">
+            <div class="text-center md:text-left px-4 md:px-0 text-sm md:text-base">
               Com mais de 10 anos de tradição, a <strong>Luciana Mara Estúdio de Costura</strong> traduz o conceito de alta costura e acabamentos diferenciados. A Luciana Mara leva em conta os desejos e necessidades da mulher e do homem moderno.
             </div>
-            <div class="pt-4 mt-4 border-t-2 border-gray-800">
+            <div class="text-center md:text-left pt-4 mt-4 border-t-2 border-gray-800">
               WhatsApp: (34) 99214-1968<br/>
               E-mail: vendas@lucianamaraestudio.com.br<br/>
             </div>
           </div>
         </div>
-        <div class="w-1/2 flex">
-          <div class="w-1/3">
-            <h6 class="uppercase text-mara mb-4">Institucional</h6>
+        <div class="md:w-1/2 flex justify-between mt-4 md:mt-0 px-4 md:px-0 border-t-2 border-gray-800 pt-4 md:pt-0 md:border-none">
+          <div class="w-1/2 md:w-1/3">
+            <h6 class="uppercase text-mara mb-4 text-center md:text-left">Institucional</h6>
             <ul>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Quem Somos</nuxt-link>
               </li>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Blog</nuxt-link>
               </li>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Clientes</nuxt-link>
               </li>
             </ul>
           </div>
-          <div class="w-1/3">
-            <h6 class="uppercase text-mara mb-4">Atendimento</h6>
+          <div class="w-1/2 md:w-1/3">
+            <h6 class="uppercase text-mara mb-4 text-center md:text-left">Atendimento</h6>
             <ul>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Nossas Politicas</nuxt-link>
               </li>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Entre em contato</nuxt-link>
               </li>
             </ul>
-          </div><div class="w-1/3">
-            <h6 class="uppercase text-mara mb-4">Minha Conta</h6>
+          </div><div class="w-1/2 md:w-1/3 hidden md:block">
+            <h6 class="uppercase text-mara mb-4 text-center md:text-left">Minha Conta</h6>
             <ul>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Meu Cadastro</nuxt-link>
               </li>
-              <li class="mb-2">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="">Meus Pedidos</nuxt-link>
               </li>
             </ul>
@@ -85,8 +85,8 @@
       </div> -->
     </div>
     <footer class="bg-mara flex items-center text-center">
-      <div class="container mx-auto font-bold">
-        © 2020 - Luciana Mara Estúdio de Costura - Todos os direitos reservados
+      <div class="container mx-auto font-bold text-sm md:text-base leading-tight flex justify-center">
+        © 2020 - Luciana Mara Estúdio de Costura<span class="hidden md:block mx-2"> - </span><br class="md:hidden" />Todos os direitos reservados
       </div>
     </footer>
   </footer>
@@ -103,6 +103,16 @@
 
     footer{
       height: 50px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    footer{
+      height: 550px;
+
+      footer{
+        height: 50px;
+      }
     }
   }
 </style>

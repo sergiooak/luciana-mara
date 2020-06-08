@@ -47,4 +47,11 @@
       display: none;
     }
   }
+  @media (max-width: 640px) {
+    .gram-3,
+    .gram-4,
+    .gram-5{
+      display: none;
+    }
+  }
 </style>

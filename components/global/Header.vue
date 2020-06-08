@@ -1,13 +1,16 @@
 <template>
   <header class="bg-white border-t-4 border-mara shadow-lg relative">
-    <div class="container mx-auto flex justify-between h-full items-center">
+    <div class="container mx-auto flex justify-between h-full items-center px-4 md:px-0">
+      <div class="md:hidden">
+        P
+      </div>
       <div class="w-1/2 flex justify-start items-center">
         <div class="">
           <nuxt-link to="/">
             <img src="/logo/logo-horizontal.svg" style="height: 75px;" alt="Luciana Mara - Estúdio de Costura">
           </nuxt-link>
         </div>
-        <div class="ml-6 flex relative">
+        <div class="ml-6 relative hidden md:flex">
           <div  id="mostraCategorias"
                 class="text-astronaut relative flex justify-between items-center focus:shadow-none focus:outline-none
                 transition-color ease duration-300 hover:text-mara"
@@ -34,7 +37,10 @@
           </slide-y-up-transition>
         </div>
       </div>
-      <div class="w-1/2 flex justify-end items-center">
+      <div class="md:hidden">
+        M
+      </div>
+      <div class="w-1/2 hidden md:flex justify-end items-center">
         <div class="mr-8">
           <form @submit.prevent="onSubmit" class="flex h-12">
             <input v-model="s" type="text" placeholder="Pesquisar..." class="bg-gray-300 pl-6 rounded-l-full">
@@ -130,6 +136,9 @@ export default {
     z-index: +1;
   }
 
-
-
+  @media (max-width: 640px) {
+    header{
+      height: 75px;
+    }
+  }
 </style>

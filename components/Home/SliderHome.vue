@@ -90,9 +90,20 @@
   .slideSlot{
     height: 320px;
   }
+
   .slider{
     height: 320px;
     background-image: url('/slider-bg.svg');
     background-size: cover;
+  }
+
+  @media (max-width: 640px) {
+    .slideSlot{
+      height: 440px;
+    }
+
+    .slider{
+      height: 440px;
+    }
   }
 </style>

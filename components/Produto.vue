@@ -6,11 +6,11 @@
           <img :src="thumb(images)" alt="">
         </figure>
       </div>
-      <div class="p-4 detalhes">
-        <span class="categoria text-gray-900 text-sm">
+      <div class="p-4 detalhes flex flex-col justify-between">
+        <!-- <span class="categoria text-gray-900 text-sm">
           {{ categoria }}
-        </span>
-        <h4 class="text-xl text-astronaut -mt-1 leading-none mb-2">
+        </span> -->
+        <h4 class="md:text-xl text-astronaut -mt-1 leading-none mb-2">
           {{ titulo }}
         </h4>
         <p class="preco text-lg text-mara">
@@ -69,6 +69,7 @@ export default {
         height: 400px;
       }
 
+
       .detalhes{
         position: relative;
         height:  var(--detalhesHeigh);
@@ -85,6 +86,32 @@ export default {
         .detalhes{
           margin-top: 0;
           background-color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .produtoWrapper{
+      height: 316px;
+
+      .produto{
+
+        figure{
+          height: 316px;
+        }
+
+
+        .detalhes{
+
+        }
+
+        &:hover{
+          margin-top: 0;
+
+          .detalhes{
+            margin-top: calc(var(--detalhesHeigh) * -1);
+          }
         }
       }
     }
