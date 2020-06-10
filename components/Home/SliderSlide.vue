@@ -11,7 +11,7 @@
         {{ content.cta }}
       </nuxt-link>
     </div>
-    <img :src="content.imagem" alt="">
+    <img :src="content.imagem" alt="" class="object-contain">
   </div>
 </template>
 

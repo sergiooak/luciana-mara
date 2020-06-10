@@ -6,8 +6,8 @@
         <div v-for="cliente in clientes" :key="cliente.ID" class="w-32 md:w-64 p-2 md:p-4 box-content">
           <div class="bg-white shadow-lg flex flex-col h-full">
             <img class="w-full object-contain h-32 md:h-64" :src="cliente['Image URL']" alt="">
-            <div class="py-4 h-full flex justify-center items-center">
-              <h6 class="text-center  text-lg text-astronaut leading-none">{{ cliente.Title }}</h6>
+            <div class="py-4 flex-1 flex justify-center items-center">
+              <h6 class="text-center text-lg text-astronaut leading-none">{{ cliente.Title }}</h6>
             </div>
           </div>
         </div>
