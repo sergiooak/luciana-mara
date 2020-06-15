@@ -77,7 +77,7 @@ export default {
   },
   generate: {
     routes(){
-      axios.get("https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/posts").then((res) => {
+      return axios.get("https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/posts").then((res) => {
         return res.data.map((post) => {
           return{
             route: "/blog/" + post.slug,
