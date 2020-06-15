@@ -30,6 +30,9 @@
 
   export default {
     name: 'homeSlider',
+    props: [
+      'slides'
+    ],
     components: {
       SlideYDownTransition,
       SliderSlide,
@@ -40,29 +43,6 @@
         loading: false,
         trocandoSlide: false,
         currentSlideIndex: 0,
-        slides: [
-          {
-            titulo: 'Jalecos femininos',
-            conteudo: 'Vários modelos de jalecos a pronta entrega',
-            cta: 'Compre agora',
-            ctaLink: 'https://whats.link/lucianamara',
-            imagem: 'https://res.cloudinary.com/luciana-mara/image/upload/v1591712464/woocommerce/Sem-título-2.png'
-          },
-          {
-            titulo: 'Moda executiva',
-            conteudo: 'Modelos atemporais, modernos e confortáveis.',
-            cta: 'Ver produto',
-            ctaLink: '/categoria/feminino',
-            imagem: 'https://res.cloudinary.com/luciana-mara/image/upload/v1590665345/woocommerce/slider-demo.png'
-          },
-          {
-            titulo: 'Máscaras reutilizáveis',
-            conteudo: 'Máscaras produzidas em tricoline 100% algodão, forro duplo e elásticos nas extremidades. Seguimos rigorosamente todos os critérios do Ministério da Saúde',
-            cta: 'Ver produto',
-            ctaLink: '/categoria/mascara-reutilizavel',
-            imagem: ''
-          },
-        ]
       }
     },
     methods: {

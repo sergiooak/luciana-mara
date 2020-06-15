@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 export default {
   mode: 'universal',
@@ -72,6 +73,27 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    routes(){
+      axios.get("https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/posts").then((res) => {
+        return res.data.map((post) => {
+          return{
+            route: "/blog/" + post.slug,
+            payload: post
+          }
+        })
+      })
+      // let blog = axios.get("https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/posts").then((res) => {
+      //   return{
+      //     route: "/blog",
+      //     payload: res
+      //   }
+      // })
+      // return Promise.all([posts]).then(values => {
+      //   return values.join().split(',');
+      // })
     }
   }
 }

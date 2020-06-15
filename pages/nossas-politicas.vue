@@ -113,6 +113,16 @@ import HeadingSection from "~/components/HeadingSection.vue"
 
 export default {
   name: 'Politicas',
+  // asyncData({ params, $axios, payload }){
+  //   if (payload) {
+  //     return {politica: payload.politica}
+  //   } else {
+  //     return $axios.$get(`https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/pages?slug=politicas`)
+  //       .then((res) => {
+  //         return {politica: res[0]}
+  //       })
+  //   }
+  // },
   components: {
     HeadingSection,
   },

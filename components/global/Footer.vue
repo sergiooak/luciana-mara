@@ -49,9 +49,9 @@
               <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="/quem-somos">Quem Somos</nuxt-link>
               </li>
-              <!-- <li class="mb-2 text-center md:text-left">
+              <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="/blog">Blog</nuxt-link>
-              </li> -->
+              </li>
               <li class="mb-2 text-center md:text-left">
                 <nuxt-link to="/nossos-clientes">Nossos clientes</nuxt-link>
               </li>

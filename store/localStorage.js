@@ -29,7 +29,7 @@ export const mutations = {
 
 export const actions = {
   login(context, payload, $axios) {
-    console.log('fazendo login');
+    // console.log('fazendo login');
     var vm = this
     vm.$axios
       .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
