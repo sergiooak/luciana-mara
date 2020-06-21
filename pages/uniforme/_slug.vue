@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="wrapper pt-8">
-    <main v-if="!loading" class="container mx-auto mb-12 pt-8">
+    <main v-for="product in products" :key="product.id" class="container mx-auto mb-12 pt-8">
       <div class="wrapper w-10/12 mx-auto flex flex-col md:flex-row">
         <div class="w-full md:w-1/2">
           <Galeria v-if="product.slug == $route.params.slug" />
@@ -77,6 +77,16 @@
       HeadingSection,
       Galeria
     },
+    async asyncData({ params, $axios }){
+      let API_URL = process.env.API_URL;
+      let TOKEN = process.env.TOKEN;
+      let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+
+      const products = await fetch(`${API_URL}/wp-json/wc/v3/products?status=publish&slug=${params.slug}`, obj)
+        .then(res => res.json());
+
+      return { products }
+    },
     data() {
       return {
         pedido: {
@@ -86,23 +96,23 @@
         }
       }
     },
-    mounted() {
-      let payload = this.$route.params.slug;
-      this.$store.dispatch("products/retrieveSingle", payload);
-
-      this.pedido.product = this.product;
-      if (this.product.attributes[0]) {
-        this.pedido.tamanho = this.product.attributes[0].options[0];
-      }
-    },
-    computed: {
-      loading(){
-        return this.$store.state.products.current.loading;
-      },
-      product(){
-        return this.$store.state.products.current.item;
-      },
-    },
+    // mounted() {
+    //   let payload = this.$route.params.slug;
+    //   this.$store.dispatch("products/retrieveSingle", payload);
+    //
+    //   this.pedido.product = this.product;
+    //   if (this.product.attributes[0]) {
+    //     this.pedido.tamanho = this.product.attributes[0].options[0];
+    //   }
+    // },
+    // computed: {
+    //   loading(){
+    //     return this.$store.state.products.current.loading;
+    //   },
+    //   product(){
+    //     return this.$store.state.products.current.item;
+    //   },
+    // },
     methods: {
       addToCart(){
         this.$store.dispatch("cart/add", this.pedido);

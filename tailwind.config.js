@@ -10,6 +10,7 @@ module.exports = {
     "./components/**/*.vue",
     "./plugins/**/*.vue",
     "./static/**/*.vue",
+    "./layouts/**/*.vue",
     "./store/**/*.vue"
   ],
   theme: {

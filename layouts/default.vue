@@ -27,8 +27,6 @@
 
     mounted() {
       this.$store.dispatch("categories/retrieve");
-      this.$store.dispatch("products/retrieve");
-      this.$store.dispatch("instagram/retrieve");
     }
   }
 </script>

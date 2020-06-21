@@ -84,6 +84,9 @@
             a definir
           </div>
         </div>
+        <div class="px-4 py-2 flex justify-between items-center">
+          input
+        </div>
         <div class="p-4 flex justify-between items-center border-t-2 border-gray-400">
           <div>
             Total

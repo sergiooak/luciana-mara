@@ -31,12 +31,36 @@
           <div>Sub-total:</div>
           <div>{{ real(valorTotal) }}</div>
         </div>
-        <div class="p-4 flex justify-between items-center border-t-2 border-gray-400">
+        <div class="p-4 pb-0 flex justify-between items-center border-t-2 border-gray-400">
           <div>
             Entrega
           </div>
           <div>
-            a definir
+            <label class="block mt-4 border-2 border-gray-300 p-2 pt-1">
+              <select class="form-select mt-1 block w-full" v-model="frete.tipo" @change="calculaFrete()">
+                <option value="" disabled selected>Selecione</option>
+                <option value="pac">Correios PAC</option>
+                <option value="sedex">Correios SEDEX</option>
+                <option value="retirada">Retirada na loja</option>
+                <option value="moto">Entrega em Uberlândia</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="px-4 h-24 flex justify-end items-center">
+          <div class="flex-1 mr-16" v-if="frete.tipo !== 'retirada' && frete.tipo !== 'moto'">
+            <label class="block">
+              <span class="text-gray-700">CEP</span>
+              <input class="form-input mt-1 block w-full border-2 border-gray-300 px-4 py-2" placeholder="000000-000">
+            </label>
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <div>
+              {{ frete.prazo + (frete.prazo > 1 ? ' dias úteis' : ' dia útil') }}
+            </div>
+            <div class="text-right">
+              {{ real(frete.valor) }}
+            </div>
           </div>
         </div>
         <div class="p-4 flex justify-between items-center border-t-2 border-gray-400">
@@ -44,7 +68,7 @@
             Total
           </div>
           <div>
-            {{ real(valorTotal) }}
+            {{ real(valorTotalComFrete) }}
           </div>
         </div>
         <footer>
@@ -70,6 +94,16 @@ export default {
   components: {
     HeadingSection,
   },
+  data() {
+    return {
+      frete: {
+        cep: '',
+        prazo: 0,
+        valor: 0,
+        tipo: ''
+      }
+    }
+  },
   computed: {
     cart(){
       return this.$store.state.cart.items;
@@ -82,11 +116,29 @@ export default {
         }
       }
       return total;
+    },
+    valorTotalComFrete(){
+      let total = 0
+      if (typeof this.cart !== 'undefined') {
+        for (var item of this.cart) {
+          total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
+        }
+      }
+      return parseFloat(parseFloat(total) + parseFloat(this.frete.valor));
     }
   },
   methods: {
     real(valor){
       return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor)
+    },
+    calculaFrete(){
+      if (this.frete.tipo == 'retirada') {
+        this.frete.prazo = 1
+        this.frete.valor = 0.0
+      }else if (this.frete.tipo == 'moto'){
+        this.frete.prazo = 1
+        this.frete.valor = 15.0
+      }
     }
   }
 }

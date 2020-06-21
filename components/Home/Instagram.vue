@@ -19,17 +19,12 @@
   import HeadingSection from "~/components/HeadingSection.vue"
   export default {
     name: 'Instagram',
+    props: [
+      'grams'
+    ],
     components: {
       HeadingSection
-    },
-    computed: {
-      grams(){
-        return this.$store.state.instagram.items;
-      },
-      isLoading(){
-        return this.$store.state.instagram.loading;
-      }
-    },
+    }
   }
 </script>
 

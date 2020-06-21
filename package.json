@@ -1,22 +1,22 @@
 {
   "name": "luciana-mara",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "Ecommerce PWA powered by Nuxt.js an WooCommerce",
-  "author": "SergioOak.dev",
+  "author": "sergiooak",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt build && nuxt export",
+    "serve": "nuxt serve"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "animate.css": "^4.1.0",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "2.13.0",
     "nuxt-vuex-localstorage": "^1.2.6",
     "sass-loader": "^8.0.2",
     "vue2-transitions": "^0.3.0"

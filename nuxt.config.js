@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export default {
   mode: 'universal',
+  target: 'static',
   /*
   ** Headers of the page
   */
@@ -56,7 +57,7 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['nuxt-vuex-localstorage', {
-      localStorage: ['localStorage', 'cart', 'categories', 'instagram', 'products', 'slider']
+      localStorage: ['localStorage', 'cart', 'categories', 'products', 'slider']
     }]
   ],
   /*

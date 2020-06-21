@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="produtoWrapper" @click.prevent="changeCurrentProduct()">
+  <div class="produtoWrapper">
     <nuxt-link :to="url(slug)" class="produto flex flex-col bg-white shadow-lg relative">
       <div>
         <figure>
@@ -45,10 +45,6 @@ export default {
       let transforms = 'c_thumb,g_face,w_288,h_400,y_0,z_0.25/c_scale,l_logos:overlay,o_07,w_0.5,fl_tiled';
       let extension = "png";
       return `https://res.cloudinary.com/luciana-mara/image/upload/${transforms}/${id}.${extension}`
-    },
-    changeCurrentProduct(){
-      this.$store.commit("products/toggleCurrent", this.product);
-      // context.commit("toggle", res);
     }
   }
 }
