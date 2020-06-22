@@ -30,7 +30,7 @@ export default {
     let id = await category[0].id;
 
     let products = await fetch(`${API_URL}/wp-json/wc/v3/products?category=${id}`, obj)
-      .then(res => res.json())
+      .then(res => res.json());
 
     return { products }
   }

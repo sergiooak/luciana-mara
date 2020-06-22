@@ -3,7 +3,7 @@
     <main v-for="product in products" :key="product.id" class="container mx-auto mb-12 pt-8">
       <div class="wrapper w-10/12 mx-auto flex flex-col md:flex-row">
         <div class="w-full md:w-1/2">
-          <Galeria v-if="product.slug == $route.params.slug" />
+          <Galeria :images="product.images" />
         </div>
         <div class="w-full md:w-1/2 mt-8 md:mt-0">
           <h1 class="text-astronaut text-4xl md:mb-4 leading-none">{{ product.name }}</h1>
