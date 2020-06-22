@@ -24,7 +24,7 @@ export default {
 
     const slides = await fetch(`${API_URL}/wp-json/wp/v2/slides`, obj)
       .then(res => res.json());
-    const grams = await fetch(`https://www.instagram.com/lucianamaraestudiodecostura/?__a=1`, obj)
+    const grams = await fetch(`https://www.instagram.com/lucianamaraestudiodecostura/?__a=1`)
       .then(res => res.json());
     const trends = await fetch(`${API_URL}/wp-json/wc/v3/products?per_page=4&featured=true`, obj)
       .then(res => res.json());

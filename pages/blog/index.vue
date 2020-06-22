@@ -24,11 +24,15 @@ import HeadingSection from "~/components/HeadingSection.vue"
 
 export default {
   name: 'Blog',
-  asyncData({ params, $axios }){
-    return $axios.$get("https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/posts")
-    .then((res) => {
-      return {posts: res}
-    })
+  async asyncData({ params, $axios }){
+    let API_URL = process.env.API_URL;
+    let TOKEN = process.env.TOKEN;
+    let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+
+    const posts = await fetch(`${API_URL}/wp-json/wp/v2/posts`, obj)
+      .then(res => res.json());
+
+    return { posts }
   },
   components: {
     HeadingSection,

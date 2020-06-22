@@ -57,8 +57,14 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['nuxt-vuex-localstorage', {
-      localStorage: ['localStorage', 'cart', 'categories', 'products', 'slider']
-    }]
+      localStorage: ['localStorage', 'cart', 'categories']
+    }],
+    ['nuxt-facebook-pixel-module', {
+      /* module options */
+      track: 'PageView',
+      pixelId: '3038472676239056',
+      disabled: false
+    }],
   ],
   /*
   ** Axios module configuration

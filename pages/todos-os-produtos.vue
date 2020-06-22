@@ -19,14 +19,16 @@ export default {
     HeadingSection,
     Produto
   },
-  computed: {
-    products(){
-      return this.$store.state.products.items;
-    }
+  async asyncData({ params, $axios }){
+    let API_URL = process.env.API_URL;
+    let TOKEN = process.env.TOKEN;
+    let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+
+    const products = await fetch(`${API_URL}/wp-json/wc/v3/products?status=publish&per_page=100`, obj)
+      .then(res => res.json());
+
+    return { products }
   },
-  mounted() {
-    return this.$store.dispatch("products/retrieve");
-  }
 }
 </script>
 

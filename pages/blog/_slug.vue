@@ -19,15 +19,17 @@ import HeadingSection from "~/components/HeadingSection.vue"
 
 export default {
   name: 'Post',
-  asyncData({ params, $axios, payload }){
-    if (payload) {
-      return {post: payload}
-    } else {
-      return $axios.$get(`https://wplucianamara1.websiteseguro.com/wp-json/wp/v2/posts?slug=${params.slug}`)
-        .then((res) => {
-          return {post: res[0]}
-        })
-    }
+  async asyncData({ params, $axios }){
+    let API_URL = process.env.API_URL;
+    let TOKEN = process.env.TOKEN;
+    let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+
+    let posts = await fetch(`${API_URL}/wp-json/wp/v2/posts?slug=${params.slug}`, obj)
+      .then(res => res.json());
+
+    let post = await posts[0];
+
+    return { post }
   },
   components: {
     HeadingSection,

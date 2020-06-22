@@ -19,22 +19,20 @@ export default {
     HeadingSection,
     Produto
   },
-  computed: {
-    allProducts(){
-      return this.$store.state.products.items;
-    },
-    products() {
-      if(this.allProducts.length){
-        return this.allProducts.filter(o => o.categories.map(function(e){return e.slug}).indexOf(this.$route.params.slug) != -1 ? true : false)
-      }else{
-        return false;
-      }
-    }
-  },
-  methods: {
-  },
-  mounted() {
-    return this.$store.dispatch("products/retrieve");
+  async asyncData({ params, $axios }){
+    let API_URL = process.env.API_URL;
+    let TOKEN = process.env.TOKEN;
+    let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+
+    // Faz a requisição para descobrir a id da categoria pelo slug
+    let category = await fetch(`${API_URL}/wp-json/wc/v3/products/categories?category=16&slug=${params.slug}`, obj)
+      .then(res => res.json())
+    let id = await category[0].id;
+
+    let products = await fetch(`${API_URL}/wp-json/wc/v3/products?category=${id}`, obj)
+      .then(res => res.json())
+
+    return { products }
   }
 }
 </script>
