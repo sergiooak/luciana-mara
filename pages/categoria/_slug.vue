@@ -22,7 +22,7 @@ export default {
   async asyncData({ params, $axios }){
     let API_URL = process.env.API_URL;
     let TOKEN = process.env.TOKEN;
-    let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+    let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     // Faz a requisição para descobrir a id da categoria pelo slug
     let category = await fetch(`${API_URL}/wp-json/wc/v3/products/categories?category=16&slug=${params.slug}`, obj)

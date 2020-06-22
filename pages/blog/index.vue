@@ -27,7 +27,7 @@ export default {
   async asyncData({ params, $axios }){
     let API_URL = process.env.API_URL;
     let TOKEN = process.env.TOKEN;
-    let obj = {method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${TOKEN}`}}
+    let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     const posts = await fetch(`${API_URL}/wp-json/wp/v2/posts`, obj)
       .then(res => res.json());
