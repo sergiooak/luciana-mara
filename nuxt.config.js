@@ -15,6 +15,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
+    ],
+    script: [
+      { type: 'text/javascript', src: 'https://ws.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js'}
     ]
   },
   pwa: {

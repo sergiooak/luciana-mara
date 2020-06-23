@@ -28,21 +28,21 @@ export const mutations = {
 }
 
 export const actions = {
-  login(context, payload, $axios) {
+  login(context, payload) {
     // console.log('fazendo login');
-    var vm = this
-    vm.$axios
-      .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
-        username: payload.username,
-        password: payload.password
-      })
-      .then(function(res) {
-        context.commit("setUser", res);
-        $nuxt._router.push('/minha-conta')
-      })
-      .catch(function(error) {
-          console.log(error);
-      });
+    context.commit("setUser", payload);
+    $nuxt._router.push('/minha-conta')
+    // var vm = this
+    // vm.$axios
+    //   .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
+    //     username: payload.username,
+    //     password: payload.password
+    //   })
+    //   .then(function(res) {
+    //   })
+    //   .catch(function(error) {
+    //       console.log(error);
+    //   });
   },
   logout(context) {
     context.commit("logout");

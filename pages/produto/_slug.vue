@@ -96,15 +96,12 @@
         }
       }
     },
-    // mounted() {
-    //   let payload = this.$route.params.slug;
-    //   this.$store.dispatch("products/retrieveSingle", payload);
-    //
-    //   this.pedido.product = this.product;
-    //   if (this.product.attributes[0]) {
-    //     this.pedido.tamanho = this.product.attributes[0].options[0];
-    //   }
-    // },
+    mounted() {
+      this.pedido.product = this.products[0];
+      // if (this.product.attributes[0]) {
+      //   this.pedido.tamanho = this.product.attributes[0].options[0];
+      // }
+    },
     // computed: {
     //   loading(){
     //     return this.$store.state.products.current.loading;

@@ -57,7 +57,7 @@ export default {
         .then(function(res) {
           vm.logou = true;
           vm.error = false;
-          this.$store.localStorage.commit("setUser", res);
+          vm.$store.dispatch("localStorage/login", res);
         }).catch(function (err){
           vm.error = true;
         }).finally(function (res) {
