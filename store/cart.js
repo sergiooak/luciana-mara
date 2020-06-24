@@ -5,6 +5,26 @@ export const state = () => ({
     prazo: 0,
     valor: 0,
     tipo: ''
+  },
+  form: {
+    nome: '',
+    sobrenome: '',
+    email: '',
+    senha: '',
+
+    cep: '',
+    endereco: '',
+    numero: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+    pais: '',
+
+    celular: '',
+    whatsapp: true,
+  },
+  pedido: {
+    id: null
   }
 })
 
@@ -21,6 +41,9 @@ export const mutations = {
   },
   updateFrete (state, payload) {
     state.frete = payload
+  },
+  updateForm (state, payload) {
+    state.form = payload
   },
 }
 
@@ -44,5 +67,8 @@ export const actions = {
   },
   updateFrete(context, payload) {
     context.commit("updateFrete", payload);
+  },
+  updateForm(context, payload) {
+    context.commit("updateForm", payload);
   },
 };
