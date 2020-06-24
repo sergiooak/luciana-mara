@@ -1,5 +1,11 @@
 export const state = () => ({
   items: [],
+  frete: {
+    cep: '',
+    prazo: 0,
+    valor: 0,
+    tipo: ''
+  }
 })
 
 export const mutations = {
@@ -7,10 +13,14 @@ export const mutations = {
     state.items.push(products)
   },
   remove (state, uniqueId) {
-    state.trending.items = products
+    let i = state.items.findIndex(x => x.uniqueId == uniqueId);
+    state.items.splice(i, 1);
   },
   removeAll (state, uniqueId) {
     state.items = []
+  },
+  updateFrete (state, payload) {
+    state.frete = payload
   },
 }
 
@@ -27,9 +37,12 @@ export const actions = {
     $nuxt._router.push('/carrinho')
   },
   remove(context, uniqueId) {
-
+    context.commit("remove", uniqueId);
   },
   reset(context){
     context.commit("removeAll");
-  }
+  },
+  updateFrete(context, payload) {
+    context.commit("updateFrete", payload);
+  },
 };
