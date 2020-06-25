@@ -4,7 +4,7 @@
     <Vantagens />
     <Destaques :trends="trends" />
     <!-- <Categorias /> -->
-    <Instagram :grams="grams.graphql.user.edge_owner_to_timeline_media.edges" class="mb-8"/>
+    <Instagram v-if="!loadingGrams" :grams="grams.graphql.user.edge_owner_to_timeline_media.edges" class="mb-8"/>
   </div>
 </template>
 
@@ -18,20 +18,32 @@ import Instagram from '~/components/Home/Instagram.vue';
 export default {
   name: 'Home',
   async asyncData({ params, $axios }){
-    let APP_URL = process.env.APP_URL;
     let API_URL = process.env.API_URL;
     let TOKEN = process.env.TOKEN;
-    
     let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     const slides = await fetch(`${API_URL}/wp-json/wp/v2/slides`, obj)
       .then(res => res.json());
-    const grams = await fetch(`${APP_URL}/.netlify/functions/grams`)
-      .then(res => res.json());
+    // const grams = await fetch(`https://www.instagram.com/lucianamaraestudio/?__a=1`)
+    //   .then(res => res.json());
     const trends = await fetch(`${API_URL}/wp-json/wc/v3/products?per_page=4&featured=true`, obj)
       .then(res => res.json());
 
-    return { slides, grams, trends }
+    return { slides, trends }
+  },
+  data(){
+    return {
+      grams: {},
+      loadingGrams: true
+    }
+  },
+  mounted() {
+    let vm = this;
+    vm.$axios.$get(`https://www.instagram.com/lucianamaraestudio/?__a=1`)
+      .then(function (res){
+        vm.grams = res
+        vm.loadingGrams = false
+      });
   },
   components: {
     SliderHome,
