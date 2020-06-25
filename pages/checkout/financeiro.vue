@@ -3,10 +3,10 @@
     <HeadingSection class="mt-8 mb-8" title="Financeiro" />
     <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12">
       <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
-        {{ 'Session: ' + sessionID }}<br />
+        <!-- {{ 'Session: ' + sessionID }}<br />
         {{ 'sender Hash: ' + senderHash }}
-        {{ 'flag: ' + flag }}
-        <form @submit.prevent="createCardToken()" class="mt-8 w-full -mt-4">
+        {{ 'flag: ' + flag }} -->
+        <form @submit.prevent="erro = true" class="mt-8 w-full -mt-4">
           <div>
             <label class="block w-full">
               <span class="text-gray-700">Número</span>
@@ -35,8 +35,10 @@
           </div>
           <input type="submit" name="button" class="mt-8 mb-12 bg-astronaut px-4 py-2 text-white uppercase" value="Finalizar pagamento">
         </form>
-
-        {{ 'token do cartão: ' + cartao.token }}
+        <div v-if="erro" class="bg-red-100 border-l-4 border-red-600 text-red-600 py-2 px-4">
+          <strong class="text-red-800">Ops!</strong> O seu pagamento não foi aproavado
+        </div>
+        <!-- {{ 'token do cartão: ' + cartao.token }} -->
       </main>
       <aside class="w-full md:w-4/12 bg-white mt-8 md:mt-0">
         <header class="p-4 uppercase">
@@ -69,7 +71,7 @@
             Total
           </div>
           <div>
-            {{ real(valorTotal) }}
+            <!-- {{ real(valorTotal) }} -->
           </div>
         </div>
       </aside>
@@ -93,15 +95,16 @@ export default {
   },
   data() {
     return {
+      erro: false,
       sessionID: null,
       senderHash: null,
       cartao: {
         token: null,
-        nome: 'marlene a ribeiro',
-        numero: '5220270262140207',
-        mes: '05',
-        ano: '26',
-        cvv: '628',
+        nome: '',
+        numero: '',
+        mes: '',
+        ano: '',
+        cvv: '',
       },
       flag: ''
     }

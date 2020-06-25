@@ -1,7 +1,19 @@
 <template lang="html">
   <div class="">
     <HeadingSection class="mt-8 mb-8" title="Checkout" />
-    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12">
+    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12 relative">
+      <div v-if="loading" class="flex flex-col absolute inset-0 flex justify-center items-center bg-gray-200" style="--bg-opacity: .75">
+        <Spinner class="-mt-4" />
+        <div v-if="!sucesso" class="bg-white w-64 text-center text-astronaut mt-8 px-4 py-2">
+          Por favor aguarde um instante, estamos criando a sua conta...
+        </div>
+        <div v-if="sucesso" class="w-64 my-2 bg-green-100 border-l-4 border-green-600 text-green-800 px-4 py-2">
+          Conta criada com sucesso!
+        </div>
+        <div v-if="sucesso" class="bg-white w-64 text-center text-astronaut p-4">
+          Salvando o seu pedido...
+        </div>
+      </div>
       <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
         <div class="w-full mb-4 bg-green-100 border-l-4 border-green-600 text-green-800 px-4 py-2 text-sm leading-tight mb-4">
           Crie sua conta utilizando o formulário abaixo.
@@ -131,20 +143,27 @@
 </template>
 
 <script>
-import HeadingSection from "~/components/HeadingSection.vue"
+import HeadingSection from '~/components/HeadingSection.vue'
+import Spinner from '~/components/Spinner'
 
 export default {
   name: 'Checkout',
   components: {
     HeadingSection,
+    Spinner
   },
   data() {
     return {
+      loading: false,
+      sucesso: false,
+      user: {
+
+      },
       form: {
-        nome: 'Sergio',
-        sobrenome: 'Carvalho',
-        email: 'sergiopcn@gmail.com',
-        senha: 'Teste!23',
+        nome: '',
+        sobrenome: '',
+        email: '',
+        senha: '',
 
         cep: '',
         endereco: '',
@@ -154,7 +173,7 @@ export default {
         estado: '',
         pais: 'Brasil',
 
-        celular: '34992003909',
+        celular: '',
         whatsapp: true,
       }
     }
@@ -206,6 +225,8 @@ export default {
         })
     },
     createUser(){
+      let vm = this;
+      this.loading = true;
       this.$store.dispatch("cart/updateForm", this.form);
       console.log('criando usuário');
 
@@ -223,6 +244,7 @@ export default {
         first_name: this.form.nome,
         last_name: this.form.sobrenome,
         username: this.form.email,
+        password: this.form.senha,
         billing: {
           first_name: this.form.nome,
           last_name: this.form.sobrenome,
@@ -251,8 +273,79 @@ export default {
 
       this.$axios.$post(`${API_URL}/wp-json/wc/v3/customers`, data, config)
       .then(function (response) {
-        console.log(response);
+        vm.sucesso = true;
+        vm.user = response
+        vm.login();
+        vm.createOrder();
       })
+    },
+    login(){
+      let vm = this;
+      let API_URL = process.env.API_URL;
+      console.log('fazendo login');
+      vm.$axios
+        .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
+          username: this.form.email,
+          password: this.form.senha
+        })
+        .then(function(res) {
+          vm.$store.dispatch("localStorage/login", res);
+          vm.$router.push('/checkout/financeiro')
+        })
+    },
+    createOrder(){
+      let vm = this;
+
+      let data = {
+      payment_method: "pag_seg",
+      payment_method_title: "Cartão de Crédito pelo Pagseguro",
+      set_paid: false,
+      customer_id: this.user.id,
+      billing: {
+        first_name: this.form.nome,
+        last_name: this.form.sobrenome,
+        address_1: this.form.endereco,
+        address_2: this.form.numero,
+        city: this.form.cidade,
+        state: this.form.estado,
+        postcode: this.form.cep,
+        country: "BRA",
+        email: this.form.email,
+        phone: this.form.celular
+      },
+      shipping: {
+        first_name: this.form.nome,
+        last_name: this.form.sobrenome,
+        address_1: this.form.endereco,
+        address_2: this.form.numero,
+        city: this.form.cidade,
+        state: this.form.estado,
+        postcode: this.form.cep,
+        country: "BRA",
+      },
+      line_items: [
+        {
+          product_id: 93,
+          quantity: 2
+        },
+        {
+          product_id: 22,
+          variation_id: 23,
+          quantity: 1
+        }
+      ],
+      shipping_lines: [
+        {
+          method_id: "flat_rate",
+          method_title: "Flat Rate",
+          total: '0'
+        }
+      ]
+    };
+
+      this.loading = true;
+      this.$store.dispatch("cart/placeOrder", data);
+      console.log('criando o pedido');
     }
   }
 }

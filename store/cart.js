@@ -1,3 +1,6 @@
+const API_URL = process.env.API_URL;
+const TOKEN = process.env.TOKEN;
+
 export const state = () => ({
   items: [],
   frete: {
@@ -23,14 +26,17 @@ export const state = () => ({
     celular: '',
     whatsapp: true,
   },
-  pedido: {
-    id: null
-  }
+  order: {}
 })
 
 export const mutations = {
   add (state, products) {
-    state.items.push(products)
+    if (state.items === undefined){
+      localStorage.setItem('cart', '');
+      window.location.reload();
+    }else{
+      state.items.push(products)
+    }
   },
   remove (state, uniqueId) {
     let i = state.items.findIndex(x => x.uniqueId == uniqueId);
@@ -43,6 +49,9 @@ export const mutations = {
     state.frete = payload
   },
   updateForm (state, payload) {
+    state.form = payload
+  },
+  updateOrder (state, payload) {
     state.form = payload
   },
 }
@@ -70,5 +79,24 @@ export const actions = {
   },
   updateForm(context, payload) {
     context.commit("updateForm", payload);
+  },
+  placeOrder(context, payload) {
+    var vm = this
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + TOKEN
+      }
+    }
+
+    vm.$axios
+      .$post(`${API_URL}/wp-json/wc/v3/orders`, payload, config)
+      .then(function(res) {
+          console.log(res);
+      })
+      .catch(function(error) {
+          console.error(error);
+      });
+
+    // context.commit("updateForm", payload);
   },
 };

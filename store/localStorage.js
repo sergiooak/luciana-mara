@@ -31,7 +31,6 @@ export const actions = {
   login(context, payload) {
     // console.log('fazendo login');
     context.commit("setUser", payload);
-    $nuxt._router.push('/minha-conta')
     // var vm = this
     // vm.$axios
     //   .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
