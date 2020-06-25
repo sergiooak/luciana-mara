@@ -18,13 +18,15 @@ import Instagram from '~/components/Home/Instagram.vue';
 export default {
   name: 'Home',
   async asyncData({ params, $axios }){
+    let APP_URL = process.env.APP_URL;
     let API_URL = process.env.API_URL;
     let TOKEN = process.env.TOKEN;
+    
     let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     const slides = await fetch(`${API_URL}/wp-json/wp/v2/slides`, obj)
       .then(res => res.json());
-    const grams = await fetch(`https://www.instagram.com/lucianamaraestudio/?__a=1`)
+    const grams = await fetch(`${APP_URL}/.netlify/functions/grams`)
       .then(res => res.json());
     const trends = await fetch(`${API_URL}/wp-json/wc/v3/products?per_page=4&featured=true`, obj)
       .then(res => res.json());

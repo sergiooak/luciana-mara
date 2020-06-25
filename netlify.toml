@@ -10,5 +10,6 @@
   status = 200
 
 
-[context.branch-deploy.environment]
-  NODE_ENV = "development"
+  [build]
+    command = "yarn generate"
+    functions = "/functions"
