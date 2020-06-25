@@ -7,7 +7,8 @@ export const state = () => ({
     logado: false,
     user_email: '',
     user_nicename: '',
-    user_display_name: ''
+    user_display_name: '',
+    id: ''
   },
   loading: false
 })
@@ -29,19 +30,28 @@ export const mutations = {
 
 export const actions = {
   login(context, payload) {
-    // console.log('fazendo login');
     context.commit("setUser", payload);
-    // var vm = this
-    // vm.$axios
-    //   .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
-    //     username: payload.username,
-    //     password: payload.password
-    //   })
-    //   .then(function(res) {
-    //   })
-    //   .catch(function(error) {
-    //       console.log(error);
-    //   });
+    var vm = this
+
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + payload.token
+      }
+    }
+
+    vm.$axios
+      .$get(`${API_URL}/wp-json/wp/v2/users`, {
+        username: payload.username,
+        password: payload.password
+      }, config)
+      .then(function(res) {
+        let user = payload;
+        user.id = res.id
+        context.commit("setUser", user);
+      })
+      .catch(function(error) {
+          console.log(error);
+      });
   },
   logout(context) {
     context.commit("logout");

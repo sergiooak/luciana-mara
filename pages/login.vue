@@ -58,6 +58,8 @@ export default {
           vm.logou = true;
           vm.error = false;
           vm.$store.dispatch("localStorage/login", res);
+
+          vm.$router.push('/minha-conta');
         }).catch(function (err){
           vm.error = true;
         }).finally(function (res) {
