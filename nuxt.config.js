@@ -84,5 +84,10 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  generate: {
+    concurrency: 25,
+    interval: 500,
+    subFolders: false
   }
 }
