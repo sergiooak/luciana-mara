@@ -50,7 +50,7 @@ export default {
       this.loading = true;
 
       let res = await vm.$axios
-        .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
+        .$post(`https://wplucianamara1.websiteseguro.com/wp-json/jwt-auth/v1/token`, {
           username: this.username,
           password: this.password
         })
