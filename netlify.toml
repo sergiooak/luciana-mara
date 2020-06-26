@@ -9,6 +9,5 @@
   to = "https://wplucianamara1.websiteseguro.com/wp-admin"
   status = 200
 
-
-  [build]
-    command = "pnpm run generate"
+[build]
+  command = "npm run generate"
