@@ -19,9 +19,9 @@ import HeadingSection from "~/components/HeadingSection.vue"
 
 export default {
   name: 'Post',
-  async asyncData({ params, $axios }){
-    let API_URL = process.env.API_URL;
-    let TOKEN = process.env.TOKEN;
+  async asyncData({ params, $axios, $config: {apiURL, apiToken} }){
+    let API_URL = apiURL;
+    let TOKEN = apiToken;
     let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     let posts = await fetch(`${API_URL}/wp-json/wp/v2/posts?slug=${params.slug}`, obj)

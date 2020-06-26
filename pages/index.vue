@@ -17,9 +17,9 @@ import Instagram from '~/components/Home/Instagram.vue';
 
 export default {
   name: 'Home',
-  async asyncData({ params, $axios }){
-    let API_URL = process.env.API_URL;
-    let TOKEN = process.env.TOKEN;
+  async asyncData({ params, $axios, $config: {apiURL, apiToken} }){
+    let API_URL = apiURL;
+    let TOKEN = apiToken;
     let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     const slides = await fetch(`${API_URL}/wp-json/wp/v2/slides`, obj)

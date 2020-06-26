@@ -44,13 +44,13 @@ export default {
   },
   methods: {
     async login() {
-      let API_URL = process.env.API_URL;
+      let API_URL = this.$config.apiURL;
       let vm = this;
 
       this.loading = true;
 
       let res = await vm.$axios
-        .$post(`https://wplucianamara1.websiteseguro.com/wp-json/jwt-auth/v1/token`, {
+        .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
           username: this.username,
           password: this.password
         })

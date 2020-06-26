@@ -19,9 +19,9 @@ export default {
     HeadingSection,
     Produto
   },
-  async asyncData({ params, $axios }){
-    let API_URL = process.env.API_URL;
-    let TOKEN = process.env.TOKEN;
+  async asyncData({ params, $axios, $config: {apiURL, apiToken} }){
+    let API_URL = apiURL;
+    let TOKEN = apiToken;
     let obj = {method: 'GET', headers: { 'Authorization': `Bearer ${TOKEN}`}}
 
     // Faz a requisição para descobrir a id da categoria pelo slug

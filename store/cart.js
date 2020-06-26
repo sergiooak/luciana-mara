@@ -1,6 +1,3 @@
-const API_URL = process.env.API_URL;
-const TOKEN = process.env.TOKEN;
-
 export const state = () => ({
   items: [],
   frete: {
@@ -84,12 +81,11 @@ export const actions = {
     var vm = this
     let config = {
       headers: {
-        'Authorization': 'Bearer ' + TOKEN
+        'Authorization': 'Bearer ' + payload.TOKEN
       }
     }
-
     vm.$axios
-      .$post(`${API_URL}/wp-json/wc/v3/orders`, payload, config)
+      .$post(`${payload.API_URL}/wp-json/wc/v3/orders`, payload, config)
       .then(function(res) {
           console.log(res);
       })
@@ -97,6 +93,5 @@ export const actions = {
           console.error(error);
       });
 
-    // context.commit("updateForm", payload);
   },
 };

@@ -230,8 +230,8 @@ export default {
       this.$store.dispatch("cart/updateForm", this.form);
       console.log('criando usuário');
 
-      let API_URL = process.env.API_URL;
-      let TOKEN = process.env.TOKEN;
+      let API_URL = this.$config.apiURL;
+      let TOKEN = this.$config.apiToken;
 
       let config = {
         headers: {
@@ -281,7 +281,7 @@ export default {
     },
     login(){
       let vm = this;
-      let API_URL = process.env.API_URL;
+      let API_URL = this.$config.apiURL;
       console.log('fazendo login');
       vm.$axios
         .$post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
@@ -297,6 +297,8 @@ export default {
       let vm = this;
 
       let data = {
+      API_URL: this.$config.apiURL,
+      TOKEN: this.$config.apiToken,
       payment_method: "pag_seg",
       payment_method_title: "Cartão de Crédito pelo Pagseguro",
       set_paid: false,
