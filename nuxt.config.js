@@ -69,6 +69,10 @@ export default {
       disabled: false
     }],
   ],
+  publicRuntimeConfig: {
+    apiURL: 'https://wplucianamara1.websiteseguro.com',
+    apiToken: process.env.TOKEN
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

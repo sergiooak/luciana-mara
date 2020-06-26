@@ -271,7 +271,7 @@ export default {
         }
       };
 
-      this.$axios.$post(`https://wplucianamara1.websiteseguro.com/wp-json/wc/v3/customers`, data, config)
+      this.$axios.$post(`${API_URL}/wp-json/wc/v3/customers`, data, config)
       .then(function (response) {
         vm.sucesso = true;
         vm.user = response
