@@ -1,6 +1,8 @@
 <template lang="html">
   <main>
-    Teste
+    {{ API_URL }}
+    <hr />
+    {{ TOKEN }}
   </main>
 </template>
 
