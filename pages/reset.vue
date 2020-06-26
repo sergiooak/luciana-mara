@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       API_URL: this.$config.apiURL,
-      TOKEN: this.$config,
+      TOKEN: this.$config.apiToken,
     }
   },
 }

@@ -71,7 +71,10 @@ export default {
   ],
   publicRuntimeConfig: {
     apiURL: 'https://wplucianamara1.websiteseguro.com',
-    apiToken: process.env.TOKEN
+    apiToken: process.env.TOKEN,
+
+    emailPS: process.env.EMAIL_PS,
+    tokenPS: process.env.TOKEN_PS
   },
   /*
   ** Axios module configuration
