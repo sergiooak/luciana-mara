@@ -23,7 +23,8 @@
     "nuxt-vuex-localstorage": "^1.2.6",
     "sass-loader": "^8.0.2",
     "vue2-transitions": "^0.3.0",
-    "xml-js": "^1.6.11"
+    "xml-js": "^1.6.11",
+    "v-mask": "^2.2.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0"

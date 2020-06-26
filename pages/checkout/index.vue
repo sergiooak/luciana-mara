@@ -42,7 +42,7 @@
           <div class="flex items-end w-full mt-8 pt-4 border-t-2 border-gray-400">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">CEP</span>
-              <input v-model="form.cep" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-mask="'#####-###'" v-model="form.cep" class="form-input mt-1 block w-full px-4 py-2">
             </label>
             <div class="ml-2 w-full h-full mb-4 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight mb-4">
               Informar o CEP primeiro agiliza o preenchimento do restante do formulário.
