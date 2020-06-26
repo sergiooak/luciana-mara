@@ -4,10 +4,17 @@
     <button type="button" name="button" class="bg-astronaut px-4 py-2 uppercase text-white">
       Resetar o carrinho
     </button>
+    <hr />
+
   </main>
 </template>
 
 <script>
+let API_URL = process.env.API_URL;
+let TOKEN = process.env.TOKEN;
+
+console.log(API_URL);
+console.log(TOKEN);
 export default {
   methods: {
     reset() {
