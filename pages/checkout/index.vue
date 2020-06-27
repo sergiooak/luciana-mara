@@ -18,25 +18,49 @@
         <div class="w-full mb-4 bg-green-100 border-l-4 border-green-600 text-green-800 px-4 py-2 text-sm leading-tight mb-4">
           Crie sua conta utilizando o formulário abaixo.
         </div>
-        <form class="w-full">
+
+        <!-- Início do formulário -->
+        <form @submit.prevent="createUser" class="w-full" autocomplete="on">
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Nome</span>
-              <input v-model="form.nome" class="form-input mt-1 block w-full px-4 py-2">
+              <input  v-model="form.nome"
+                      class="form-input mt-1 block w-full px-4 py-2"
+                      required autofocus>
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">Sobrenome</span>
-              <input v-model="form.sobrenome" class="form-input mt-1 block w-full px-4 py-2">
+              <input  v-model="form.sobrenome"
+                      class="form-input mt-1 block w-full px-4 py-2"
+                      required>
             </label>
           </div>
           <div class="flex w-full mt-4">
             <label class="block w-full mr-2">
               <span class="text-gray-700">E-mail</span>
-              <input v-model="form.email" name="username" class="form-input mt-1 block w-full px-4 py-2">
+              <input  type="email"
+                      v-model="form.email"
+                      name="username"
+                      class="form-input mt-1 block w-full px-4 py-2"
+                      required>
             </label>
             <label class="block w-full ml-2">
               <span class="text-gray-700">Senha</span>
-              <input v-model="form.senha" name="password" type="password" class="form-input mt-1 block w-full px-4 py-2">
+              <div class="flex items-end">
+                <input  v-model="form.senha"
+                        name="password"
+                        :type="senha ? 'text' : 'password'"
+                        class="form-input mt-1 block w-full px-4 py-2"
+                        required>
+                <button @click="senha = !senha" type="button" name="button" class="w-12 h-10 bg-astronaut flex justify-center items-center text-white hover:bg-mara transition-colors duration-150 focus:outline-none">
+                  <div v-if="senha">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C6.40848 3 1.71018 6.82432 0.378052 12C1.71018 17.1757 6.40848 21 12 21C17.5915 21 22.2898 17.1757 23.6219 12C22.2898 6.82432 17.5915 3 12 3ZM16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" fill="currentColor" /></svg>
+                  </div>
+                  <div v-else>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C17.5915 3 22.2898 6.82432 23.6219 12C22.2898 17.1757 17.5915 21 12 21C6.40848 21 1.71018 17.1757 0.378052 12C1.71018 6.82432 6.40848 3 12 3ZM12 19C7.52443 19 3.73132 16.0581 2.45723 12C3.73132 7.94186 7.52443 5 12 5C16.4756 5 20.2687 7.94186 21.5428 12C20.2687 16.0581 16.4756 19 12 19Z" fill="currentColor" /></svg>
+                  </div>
+                </button>
+              </div>
             </label>
           </div>
           <div class="flex items-end w-full mt-8 pt-4 border-t-2 border-gray-400">
@@ -44,7 +68,7 @@
               <span class="text-gray-700">CEP</span>
               <input v-mask="'#####-###'" v-model="form.cep" class="form-input mt-1 block w-full px-4 py-2">
             </label>
-            <div class="ml-2 w-full h-full mb-4 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight mb-4">
+            <div class="ml-2 w-full h-full mb-0 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight">
               Informar o CEP primeiro agiliza o preenchimento do restante do formulário.
             </div>
           </div>
@@ -81,7 +105,11 @@
           <div class="flex w-full mt-8 pt-4 border-t-2 border-gray-400">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Celular</span>
-              <input v-model="form.celular" class="form-input mt-1 block w-full px-4 py-2">
+              <input  v-mask="'(##) #####-####'"
+                      v-model="form.celular"
+                      placeholder="(00) 00000-0000"
+                      class="form-input mt-1 block w-full px-4 py-2"
+                      required>
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">WhatsApp</span>
@@ -93,8 +121,13 @@
               </div>
             </label>
           </div>
+          <footer class="mt-12">
+            <input type="submit" name="" value="Continuar para o financeiro" class="w-full bg-astronaut text-white uppercase px-8 py-4 cursor-pointer hover:bg-mara transition-colors duration-150">
+          </footer>
         </form>
       </main>
+
+      <!-- ìnicio da Lateral -->
       <aside class="w-full md:w-4/12 mt-8 md:mt-0 bg-white">
         <header class="p-4 uppercase text-gray-600">
           Seu pedido:
@@ -134,11 +167,6 @@
         </div>
       </aside>
     </div>
-    <div class="container mx-auto mb-12 flex justify-center md:justify-start">
-      <button @click="createUser()" class="px-4 py-2 uppercase text-white bg-astronaut">
-        Continuar para o financeiro
-      </button>
-    </div>
   </div>
 </template>
 
@@ -154,6 +182,8 @@ export default {
   },
   data() {
     return {
+      senha: false,
+
       loading: false,
       sucesso: false,
       user: {
@@ -204,7 +234,7 @@ export default {
   },
   watch: {
     'form.cep'(){
-      if (this.form.cep.length == 8) {
+      if (this.form.cep.length == 9) {
         this.getCEP()
       }
     }
@@ -215,7 +245,8 @@ export default {
     },
     getCEP(){
       let vm = this;
-      vm.$axios.$get(`https://viacep.com.br/ws/${vm.form.cep}/json/`)
+      let cep = this.form.cep.replace('-', '');
+      vm.$axios.$get(`https://viacep.com.br/ws/${cep}/json/`)
       .then(function (response) {
         console.log(response);
         vm.form.endereco = response.logradouro;
