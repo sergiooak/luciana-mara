@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt build && nuxt export && npm run functions",
-    "functions" : "cd functions/frete && npm i",
+    "functions": "cd functions/frete && npm i",
     "serve": "nuxt serve"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "v-mask": "^2.2.1"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^1.0.0"
+    "@nuxtjs/tailwindcss": "^1.0.0",
+    "@tailwindcss/custom-forms": "^0.2.1"
   }
 }

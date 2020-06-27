@@ -15,7 +15,7 @@
         </div>
       </div>
       <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
-        <div class="w-full mb-4 bg-green-100 border-l-4 border-green-600 text-green-800 px-4 py-2 text-sm leading-tight mb-4">
+        <div class="w-full mb-4 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight mb-4">
           Crie sua conta utilizando o formulário abaixo.
         </div>
 
@@ -25,13 +25,13 @@
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Nome</span>
               <input  v-model="form.nome"
-                      class="form-input mt-1 block w-full px-4 py-2"
+                      class="form-input mt-1 block w-full"
                       required autofocus>
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">Sobrenome</span>
               <input  v-model="form.sobrenome"
-                      class="form-input mt-1 block w-full px-4 py-2"
+                      class="form-input mt-1 block w-full"
                       required>
             </label>
           </div>
@@ -41,7 +41,7 @@
               <input  type="email"
                       v-model="form.email"
                       name="username"
-                      class="form-input mt-1 block w-full px-4 py-2"
+                      class="form-input mt-1 block w-full"
                       required>
             </label>
             <label class="block w-full ml-2">
@@ -50,7 +50,7 @@
                 <input  v-model="form.senha"
                         name="password"
                         :type="senha ? 'text' : 'password'"
-                        class="form-input mt-1 block w-full px-4 py-2"
+                        class="form-input mt-1 block w-full"
                         required>
                 <button @click="senha = !senha" type="button" name="button" class="w-12 h-10 bg-astronaut flex justify-center items-center text-white hover:bg-mara transition-colors duration-150 focus:outline-none">
                   <div v-if="senha">
@@ -66,7 +66,7 @@
           <div class="flex items-end w-full mt-8 pt-4 border-t-2 border-gray-400">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">CEP</span>
-              <input v-mask="'#####-###'" v-model="form.cep" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-mask="'#####-###'" v-model="form.cep" class="form-input mt-1 block w-full">
             </label>
             <div class="ml-2 w-full h-full mb-0 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight">
               Informar o CEP primeiro agiliza o preenchimento do restante do formulário.
@@ -75,31 +75,31 @@
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Endereço</span>
-              <input v-model="form.endereco" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-model="form.endereco" class="form-input mt-1 block w-full">
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">Número</span>
-              <input v-model="form.numero" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-model="form.numero" class="form-input mt-1 block w-full">
             </label>
           </div>
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Bairro</span>
-              <input v-model="form.bairro" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-model="form.bairro" class="form-input mt-1 block w-full">
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">Cidade</span>
-              <input v-model="form.cidade" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-model="form.cidade" class="form-input mt-1 block w-full">
             </label>
           </div>
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Estado</span>
-              <input v-model="form.estado" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-model="form.estado" class="form-input mt-1 block w-full">
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">País</span>
-              <input v-model="form.pais" class="form-input mt-1 block w-full px-4 py-2">
+              <input v-model="form.pais" class="form-input mt-1 block w-full">
             </label>
           </div>
           <div class="flex w-full mt-8 pt-4 border-t-2 border-gray-400">
@@ -108,16 +108,16 @@
               <input  v-mask="'(##) #####-####'"
                       v-model="form.celular"
                       placeholder="(00) 00000-0000"
-                      class="form-input mt-1 block w-full px-4 py-2"
+                      class="form-input mt-1 block w-full"
                       required>
             </label>
             <label class="block ml-2 w-full">
               <span class="text-gray-700">WhatsApp</span>
               <div class="mt-2">
-                <input v-model="form.whatsapp" type="checkbox" class="form-input mt-1">
-                <span class="text-gray-600 text-sm">
-                  O número informado está no WhatsApp?
-                </span>
+                <label class="inline-flex items-center">
+                  <input type="checkbox" v-model="form.whatsapp" class="form-checkbox h-6 w-6">
+                  <span class="ml-3 text-sm">O número informado está no WhatsApp?</span>
+                </label>
               </div>
             </label>
           </div>

@@ -20,8 +20,35 @@ module.exports = {
         'astronaut': '#003E65',
         'black': '#1A202C'
       }
-    }
+    },
+    customForms: theme => ({
+      default: {
+        input: {
+          borderRadius: theme('borderRadius.none'),
+          backgroundColor: theme('colors.white'),
+          border: 'none',
+          '&:focus': {
+            outline: '2px solid',
+            outlineColor: theme('colors.astronaut'),
+            boxShadow: 'none',
+            borderColor: theme('colors.astronaut')
+          }
+        },
+        checkbox: {
+          color: theme('colors.astronaut'),
+          borderRadius: theme('borderRadius.none'),
+          '&:focus': {
+            outline: '2px solid',
+            outlineColor: theme('colors.gray.400'),
+            boxShadow: 'none',
+            borderColor: theme('colors.astronaut')
+          }
+        },
+      },
+    })
   },
   variants: {},
-  plugins: []
+  plugins: [
+    require('@tailwindcss/custom-forms'),
+  ]
 }
