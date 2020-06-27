@@ -8,7 +8,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt build && nuxt export",
+    "generate": "nuxt build && nuxt export && npm run functions",
+    "functions" : "cd functions/frete && npm i",
     "serve": "nuxt serve"
   },
   "dependencies": {
