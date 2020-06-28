@@ -1,7 +1,7 @@
 <template lang="html">
   <section class="vantagens relative">
-    <div class="container mx-auto h-full flex flex-col md:flex-row">
-      <div class="w-full md:w-1/3 h-full mt-4 md:mt-0">
+    <div class="container mx-auto h-full flex flex-col md:flex-row md:justify-center flex-wrap">
+      <div class="w-full md:w-1/2 lg:w-1/3 h-full mt-4 md:mt-0">
         <div class="mx-4 h-20 bg-white shadow-lg border-t-4 border-mara px-4 flex items-center py-4 md:py-0">
           <img src="icons/since.svg" alt="">
           <div class="ml-4 cursor-default">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full md:w-1/3 h-full mt-4 md:mt-0">
+      <div class="w-full md:w-1/2 lg:w-1/3 h-full mt-4 md:mt-0">
         <div class="mx-4 h-20 bg-white shadow-lg border-t-4 border-mara px-4 flex items-center py-4 md:py-0">
           <img src="icons/pagamento.svg" alt="">
           <div class="ml-4 cursor-default">
@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full md:w-1/3 h-full mt-4 md:mt-0">
+      <div class="w-full md:w-1/2 lg:w-1/3 h-full mt-4 lg:mt-0">
         <div class="mx-4 h-20 bg-white shadow-lg border-t-4 border-mara px-4 flex items-center py-4 md:py-0">
           <img src="icons/entrega.svg" alt="">
           <div class="ml-4 cursor-default">

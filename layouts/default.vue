@@ -2,7 +2,7 @@
   <div class="site-wrapper">
     <Header />
     <fade-transition>
-      <nuxt class="flex-1 pt-20 md:pt-0" />
+      <nuxt class="flex-1 pt-16 md:pt-0" />
     </fade-transition>
     <div id="whatsapp">
       <a href="https://api.whatsapp.com/send?phone=5534992141968" target="_blank">
@@ -55,7 +55,7 @@
 
   body{
     font-family: 'Jost', serif;
-    @apply bg-gray-200;
+    background-color: #F7FAFC;
   }
 
   .site-wrapper{

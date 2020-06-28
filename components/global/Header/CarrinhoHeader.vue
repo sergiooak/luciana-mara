@@ -1,14 +1,12 @@
 <template lang="html">
-  <div class="wrapper">
-    <!-- Fix the bug whit localStorage -->
-    <!-- <span @click="resetCart()">Reset</span> -->
+  <div class="wrapper relative z-0">
     <div class="carrinho flex items-center cursor-pointer" @click="$router.push('/carrinho')"
          v-if="typeof cart !== 'undefined'">
       <div class="valor-carrinho text-astronaut mr-4">
         {{ real(valorTotal) }}
       </div>
-      <div class="itens-carrinho flex justify-center items-center border-2 border-astronaut text-center text-astro cursor-pointer text-astronaut">
-        {{ cart.length }}
+      <div class="sacola">
+        0
       </div>
     </div>
   </div>
@@ -48,29 +46,49 @@
 </script>
 
 <style lang="scss" scoped>
-  .carrinho{
-    .itens-carrinho{
-      min-width: 28px;
-      height: 28px;
-      padding: 0 7px;
-      @apply relative bg-white;
-      &:before {
-        position: absolute;
-        top: -10px;
-        content: "";
-        width: 14px;
-        height: 20px;
-        z-index: -1;
-        transition: top ease .15s;
-        @apply border-2 border-astronaut rounded-full;
-      }
+  .sacola{
+    @apply w-8 flex items-center justify-center h-8 border-2 border-astronaut bg-white text-astronaut relative;
+
+    &:before {
+      content: "";
+      top: -0.75rem;
+      z-index: -1;
+      transition: top .15s ease;
+      @apply absolute w-4 h-6 border-2 border-astronaut rounded-t-full;
     }
+
     &:hover{
-      .itens-carrinho{
-        &:before {
-          top: -12px;
-        }
+      &:before {
+        top: -1rem;
       }
     }
   }
+  // .carrinho{
+  //   .itens-carrinho{
+  //     min-width: 28px;
+  //     height: 28px;
+  //     padding: 0 7px;
+  //     z-index: 999;
+  //     @apply relative bg-white flex justify-center items-center border-2 border-astronaut text-center cursor-pointer text-astronaut;
+  //     &:before {
+  //       position: absolute;
+  //       z-index: -9;
+  //       top: -10px;
+  //       content: "";
+  //       width: 14px;
+  //       height: 10px;
+  //       transition: top ease .15s;
+  //       border-radius: 10px 10px 0 0;
+  //       @apply border-2 border-astronaut;
+  //     }
+  //   }
+  //   &:hover{
+  //     .itens-carrinho{
+  //       &:before {
+  //         height: 12px;
+  //         top: -12px;
+  //       }
+  //     }
+  //   }
+  // }
 </style>

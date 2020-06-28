@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="">
     <HeadingSection class="mt-8 mb-8" title="Carrinho" />
-    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12">
-      <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
+    <div class="container mx-auto flex flex-col lg:flex-row items-start px-4 mb-12">
+      <main class="w-full lg:w-9/12 xl:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
         <div class="w-full overflow-x-auto" style="width: 900px;">
           <table class="overflow-x-auto w-full" style="min-width: 800px">
             <thead class="border-b-2 border-gray-500">
@@ -32,14 +32,14 @@
           </table>
         </div>
       </main>
-      <aside class="w-full md:w-4/12 bg-white mt-8 md:mt-0">
+      <aside class="w-full lg:w-3/12 xl:w-4/12 bg-white mt-8 md:mt-0 shadow-xl">
         <div class="p-4 flex justify-between items-center">
           <div class="text-gray-500">Sub-total:</div>
           <div class="text-gray-700">{{ real(valorTotal) }}</div>
         </div>
         <div class="p-4 pb-0 flex flex-col border-t-2 border-gray-200">
           <div>
-            <div class="bg-green-100 border-l-4 border-green-600 text-green-800 px-4 py-2 text-sm leading-tight mb-4">
+            <div class="bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight mb-4">
               Calcule o frete do pedido utlizando o formulário abaixo, opções especiais para pessoas de Uberlândia/MG
             </div>
           </div>

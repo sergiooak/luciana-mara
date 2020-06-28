@@ -12,22 +12,31 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
   h2{
     height: 48px;
-    min-width: 280px;
-    font-size: 26px;
-    line-height: 26px;
+    min-width: calc(100% - 30px);
+    font-size: 28px;
+    line-height: 28px;
     padding-top: 3px;
-    @apply bg-gray-200;
-  }
+    background: #F7FAFC;
+    @apply shadow-md;
 
-  h2::before{
-    content: "";
-    position: absolute;
-    top: calc(50% - 2px);
-    z-index: -1;
-    width: calc(100% - 2rem);
-    @apply border-t-2 border-astronaut;
+    &::before{
+      content: "";
+      position: absolute;
+      top: calc(50% - 2px);
+      z-index: -1;
+      width: 100%;
+      @apply border-t-2 border-astronaut;
+    }
+
+    @media(min-width: theme('screens.md')) {
+      min-width: 400px;
+
+      &::before{
+        width: calc(100% - 2rem);
+      }
+    }
   }
 </style>
