@@ -1,9 +1,9 @@
 <template lang="html">
   <div>
     <HeadingSection class="mt-12 mb-12" :title="'Categoria: ' + $route.params.slug" />
-    <main class="container mx-auto flex justify-center flex-wrap px-2 md:px-0">
+    <main class="container mx-auto flex justify-center flex-wrap px-2 md:px-8">
       <div v-for="produto in products" class="w-1/2 md:w-1/4 px-2 mb-4 md:mb-16">
-        <Produto :product="produto" :titulo="produto.name" :categoria="produto.categoria" :preco="produto.price" :images="produto.images" :slug="produto.slug" />
+        <Produto :product="produto" :titulo="produto.name" :categoria="produto.categoria" :preco="produto.price" :slug="produto.slug" />
       </div>
     </main>
   </div>
