@@ -3,7 +3,7 @@
     <nuxt-link :to="url(slug)" class="produto flex flex-col bg-white shadow-lg relative">
       <div>
         <figure>
-          <img :src="thumb(images)" alt="">
+          <img :src="thumb" alt="">
         </figure>
       </div>
       <div class="p-4 detalhes flex flex-col justify-between">
@@ -39,14 +39,20 @@ export default {
     url(slug) {
       return `/produto/${slug}`
     },
-    thumb(images){
-      let id = images[0] ? images[0].src : 'https://res.cloudinary.com/luciana-mara/image/upload/c_thumb,g_face,w_288,h_400,y_0,z_0.25/c_scale,l_logos:overlay,o_07,w_0.5,fl_tiled/woocommerce/8-DSC_7944.png' ;
-      id = `woocommerce${id.split('woocommerce')[1].split('.')[0]}`;
+  },
+  computed: {
+    thumb(){
+      let thumb = this.product.acf.miniatura;
+      let def = this.product.images[0];
+
+      let url = thumb ? thumb.url : def.src;
+      let id = `woocommerce${url.split('woocommerce')[1].split('.')[0]}`;      
+
       let transforms = 'c_thumb,g_face,w_288,h_400,y_0,z_0.25/c_scale,l_logos:overlay,o_07,w_0.5,fl_tiled';
       let extension = "png";
       return `https://res.cloudinary.com/luciana-mara/image/upload/${transforms}/${id}.${extension}`
     }
-  }
+  },
 }
 </script>
 
