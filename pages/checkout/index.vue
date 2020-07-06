@@ -14,7 +14,26 @@
           Salvando o seu pedido...
         </div>
       </div>
-      <main class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
+
+      <!-- Tela de escolha -->
+      <main v-if="choice == false" class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
+        <h2 class="w-full text-center text-2xl font-be text-astronaut mb-8">Você já possui cadastro em nosso site?</h2>
+        <div class="w-1/2 border-r-2 border-gray-400 px-8 flex flex-col justify-center items-center">
+          <p class="text-gray-700 text-center mb-6">Faça login com a sua conta já existente:</p>
+          <button @click="$router.push('/login')" class="bg-astronaut px-8 py-2 text-white uppercase rounded-none hover:bg-mara">
+            Fazer login
+          </button>
+        </div>
+        <div class="w-1/2 px-8 flex flex-col justify-center items-center">
+          <p class="text-gray-700 text-center mb-6">Clique no botão abaixo para criar a sua conta:</p>
+          <button @click="choice = 'singup'" class="bg-astronaut px-8 py-2 text-white uppercase rounded-none hover:bg-mara">
+            Criar conta
+          </button>
+        </div>        
+      </main>
+
+      <!-- Tela de cadastro -->
+      <main v-if="choice == 'singup'" class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
         <div class="w-full mb-4 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight mb-4">
           Crie sua conta utilizando o formulário abaixo.
         </div>
@@ -182,6 +201,8 @@ export default {
   },
   data() {
     return {
+      choice: false,
+
       senha: false,
 
       loading: false,
@@ -375,7 +396,6 @@ export default {
         }
       ]
     };
-
       this.loading = true;
       this.$store.dispatch("cart/placeOrder", data);
       console.log('criando o pedido');
