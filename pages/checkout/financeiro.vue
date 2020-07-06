@@ -35,8 +35,8 @@
           </div>
           <input type="submit" name="button" class="mt-8 mb-12 bg-astronaut px-4 py-2 text-white uppercase" value="Finalizar pagamento">
         </form>
-        <div v-if="erro" class="bg-red-100 border-l-4 border-red-600 text-red-600 py-2 px-4">
-          <strong class="text-red-800">Ops!</strong> O seu pagamento não foi aproavado
+        <div v-if="erro" class="bg-yellow-100 border-l-4 border-yellow-600 text-yellow-600 py-2 px-4">
+          <strong class="text-yellow-800">Ops!</strong> O seu pagamento não foi aprovado, tente novamente mais tarde
         </div>
         <!-- {{ 'token do cartão: ' + cartao.token }} -->
       </main>
