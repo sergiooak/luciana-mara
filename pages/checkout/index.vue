@@ -210,13 +210,30 @@ export default {
       user: {
 
       },
-      form: {
-        nome: '',
-        sobrenome: '',
-        email: '',
-        senha: '',
+      // form: {
+      //   nome: '',
+      //   sobrenome: '',
+      //   email: '',
+      //   senha: '',
 
-        cep: '',
+      //   cep: '',
+      //   endereco: '',
+      //   numero: '',
+      //   bairro: '',
+      //   cidade: '',
+      //   estado: '',
+      //   pais: 'Brasil',
+
+      //   celular: '',
+      //   whatsapp: true,
+      // }
+      form: {
+        nome: 'Sergio',
+        sobrenome: 'Carvalho',
+        email: 'sergiopcn@gmail.com',
+        senha: '!23Grilo',
+
+        cep: '3840851',
         endereco: '',
         numero: '',
         bairro: '',
@@ -224,7 +241,7 @@ export default {
         estado: '',
         pais: 'Brasil',
 
-        celular: '',
+        celular: '34992003909',
         whatsapp: true,
       }
     }
@@ -233,8 +250,52 @@ export default {
     cart(){
       return this.$store.state.cart.items;
     },
+    itemsMapped(){
+      return this.cart.map(e => ({
+        product_id: e.product.id,
+        name:  e.product.name,
+        quantity: e.qtd,
+        meta_data: [
+          {
+            key: 'tamanho',
+            value: e.tamanho
+          }
+        ]
+      }));
+    },
     frete(){
       return this.$store.state.cart.frete;
+    },
+    freteMapped(){
+      let title;
+      switch (this.frete.tipo) {
+        case 'moto':
+          title = 'Entrega em Uberlândia'
+          break;
+        case 'retirada':
+          title = 'Retirada na Loja'
+          break;
+        case 'sedex':
+          title = 'Correios SEDEX'
+          break;
+        case 'pac':
+          title = 'Correios PAC'
+          break;
+        default:
+          break;
+      }
+
+      return {
+        method_id: this.frete.tipo,
+        method_title:  title,
+        total: parseFloat(this.frete.valor).toFixed(2),
+        meta_data: [
+          {
+            key: 'prazo',
+            value: this.frete.prazo
+          }
+        ]
+      };
     },
     valorTotal(){
       let total = 0
@@ -377,23 +438,9 @@ export default {
         postcode: this.form.cep,
         country: "BRA",
       },
-      line_items: [
-        {
-          product_id: 93,
-          quantity: 2
-        },
-        {
-          product_id: 22,
-          variation_id: 23,
-          quantity: 1
-        }
-      ],
+      line_items: this.itemsMapped,
       shipping_lines: [
-        {
-          method_id: "flat_rate",
-          method_title: "Flat Rate",
-          total: '0'
-        }
+        this.freteMapped
       ]
     };
       this.loading = true;
