@@ -210,30 +210,13 @@ export default {
       user: {
 
       },
-      // form: {
-      //   nome: '',
-      //   sobrenome: '',
-      //   email: '',
-      //   senha: '',
-
-      //   cep: '',
-      //   endereco: '',
-      //   numero: '',
-      //   bairro: '',
-      //   cidade: '',
-      //   estado: '',
-      //   pais: 'Brasil',
-
-      //   celular: '',
-      //   whatsapp: true,
-      // }
       form: {
-        nome: 'Sergio',
-        sobrenome: 'Carvalho',
-        email: 'sergiopcn@gmail.com',
-        senha: '!23Grilo',
+        nome: '',
+        sobrenome: '',
+        email: '',
+        senha: '',
 
-        cep: '3840851',
+        cep: '',
         endereco: '',
         numero: '',
         bairro: '',
@@ -241,9 +224,26 @@ export default {
         estado: '',
         pais: 'Brasil',
 
-        celular: '34992003909',
+        celular: '',
         whatsapp: true,
       }
+      // form: {
+      //   nome: 'Sergio',
+      //   sobrenome: 'Carvalho',
+      //   email: 'sergiopcn@gmail.com',
+      //   senha: '!23Grilo',
+
+      //   cep: '3840851',
+      //   endereco: '',
+      //   numero: '',
+      //   bairro: '',
+      //   cidade: '',
+      //   estado: '',
+      //   pais: 'Brasil',
+
+      //   celular: '34992003909',
+      //   whatsapp: true,
+      // }
     }
   },
   computed: {
