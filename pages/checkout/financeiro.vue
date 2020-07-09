@@ -6,50 +6,74 @@
         <!-- {{ 'Session: ' + sessionID }}<br />
         {{ 'sender Hash: ' + senderHash }}
         {{ 'flag: ' + flag }} -->
+        <img class="mb-8" src="https://stc.pagseguro.uol.com.br/public/img/banners/pagamento/todos_animado_550_50.gif" alt="Logotipos de meios de pagamento do PagSeguro" title="Este site aceita pagamentos com as principais bandeiras e bancos, saldo em conta PagSeguro e boleto.">
         <form @submit.prevent="erro = true" class="mt-8 w-full -mt-4">
           <div>
             <label class="block w-full">
-              <span class="text-gray-700">Número</span>
-              <input class="form-input mt-1 block w-full px-4 py-2" @keyup="getFlag()" v-model="cartao.numero">
+              <span class="text-gray-700">Número do cartão</span>
+              <input class="form-input mt-1 block w-full px-4 py-2"
+                     @keyup="getFlag()"
+                     v-model="cartao.numero"
+                     v-mask="'#### #### #### ####'"
+                     placeholder="Ex: 1234 5678 9000 0000"
+                     required autofocus/>
             </label>
           </div>
           <div class="flex w-full mt-4">
             <label class="block mr-2 w-full">
               <span class="text-gray-700">Nome (como impresso no cartão)</span>
-              <input class="form-input mt-1 block w-full px-4 py-2" v-model="cartao.nome">
+              <input class="form-input mt-1 block w-full px-4 py-2 uppercase"
+                     v-model="cartao.nome"
+                     required />
             </label>
           </div>
           <div class="flex w-full mt-4">
-            <label class="block mr-2 w-full">
-              <span class="text-gray-700">Mes</span>
-              <input class="form-input mt-1 block w-full px-4 py-2" v-model="cartao.mes">
+            <label class="block mr-2 w-2/3">
+              <span class="text-gray-700">Vencimento</span>
+              <input class="form-input mt-1 block w-full px-4 py-2"
+                     v-model="cartao.vencimento"
+                     v-mask="'##/##'"
+                     placeholder="Ex: 12/12"
+                     required />
             </label>
-            <label class="block ml-2 mr-2 w-full">
-              <span class="text-gray-700">Ano</span>
-              <input class="form-input mt-1 block w-full px-4 py-2" v-model="cartao.ano">
-            </label>
-            <label class="block ml-2 w-full">
+            <label class="block ml-2 w-1/3">
               <span class="text-gray-700">CVV</span>
-              <input class="form-input mt-1 block w-full px-4 py-2" v-model="cartao.cvv">
+              <input class="form-input mt-1 block w-full px-4 py-2"
+                     v-model="cartao.cvv"
+                     v-mask="'###'"
+                     placeholder="Ex: 000"
+                     required />
             </label>
           </div>
           <input type="submit" name="button" class="mt-8 mb-12 bg-astronaut px-4 py-2 text-white uppercase" value="Finalizar pagamento">
         </form>
-        <div v-if="erro" class="bg-yellow-100 border-l-4 border-yellow-600 text-yellow-600 py-2 px-4">
-          <strong class="text-yellow-800">Ops!</strong> O seu pagamento não foi aprovado, tente novamente mais tarde
+        <div class="w-full bg-blue-100 border-l-4 border-blue-600 text-blue-600 py-2 px-4">
+          <p class="font-normal">Pagamento processado pela PagSeguro, seu cartão <strong class="font-bold">não</strong> ficará salvo em nossos banco de dados</p>
+        </div>
+        <div class="w-full bg-red-100 border-l-4 border-red-600 text-red-600 py-2 px-4">
+          <strong class="text-red-800">Ops!</strong> O seu pagamento não foi aprovado, tente novamente mais tarde
+        </div>
+        <div class="w-full bg-green-100 border-l-4 border-green-600 text-green-600 py-2 px-4">
+          <strong class="text-green-800">Sucesso!</strong> O seu pagamento foi aprovado! Você pode acompanhar o seu pedido aqui
         </div>
         <!-- {{ 'token do cartão: ' + cartao.token }} -->
       </main>
-      <aside class="w-full md:w-4/12 bg-white mt-8 md:mt-0">
-        <header class="p-4 uppercase">
+<!-- ìnicio da Lateral -->
+      <aside class="w-full md:w-4/12 mt-8 md:mt-0 bg-white">
+        <header class="p-4 uppercase text-gray-600 flex justify-between">
+          <div>
           Seu pedido:
+          </div>
+          <div>
+            000
+          </div>
         </header>
-        <div class="mb-12">
+        <div class="mb-8">
           <table class="w-full">
-            <tbody class="border-b-2 border-gray-300">
-              <tr v-for="pedido in cart" class="border-t-2 border-gray-300">
-                <td class="py-2 pl-4">{{ pedido.product.name  }} x {{ pedido.qtd }}</td>
-                <td class="py-2 pr-4 text-right">{{ real(pedido.product.price * pedido.qtd)  }}</td>
+            <tbody class="border-b-2 border-gray-200">
+              <tr v-for="pedido in cart" class="border-t-2 border-gray-200">
+                <td class="py-2 pl-4 text-gray-700">{{ pedido.product.name  }} x {{ pedido.qtd }}</td>
+                <td class="py-2 pr-4 text-right text-astronaut">{{ real(pedido.product.price * pedido.qtd)  }}</td>
               </tr>
             </tbody>
           </table>
@@ -63,15 +87,18 @@
             Entrega
           </div>
           <div>
-            a definir
+            {{ real(frete.valor) }}
           </div>
+        </div>
+        <div class="px-4 py-2 flex justify-between items-center">
+          <!-- input -->
         </div>
         <div class="p-4 flex justify-between items-center border-t-2 border-gray-400">
           <div>
             Total
           </div>
           <div>
-            <!-- {{ real(valorTotal) }} -->
+            {{ real(valorTotalComFrete) }}
           </div>
         </div>
       </aside>
@@ -102,16 +129,21 @@ export default {
         token: null,
         nome: '',
         numero: '',
-        mes: '',
-        ano: '',
+        vencimento: '',
         cvv: '',
       },
       flag: ''
     }
   },
   computed: {
+    order(){
+      return this.$store.state.cart.order;
+    },
     cart(){
       return this.$store.state.cart.items;
+    },
+    frete(){
+      return this.$store.state.cart.frete;
     },
     valorTotal(){
       let total = 0
@@ -119,6 +151,15 @@ export default {
         total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
       }
       return total;
+    },
+    valorTotalComFrete(){
+      let total = 0
+      if (typeof this.cart !== 'undefined') {
+        for (var item of this.cart) {
+          total = parseFloat(parseFloat(total) + (parseFloat(item.product.price) * item.qtd )).toFixed(2);
+        }
+      }
+      return parseFloat(parseFloat(total) + parseFloat(this.frete.valor));
     }
   },
   methods: {

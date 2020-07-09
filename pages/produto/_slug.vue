@@ -46,7 +46,7 @@
                   <div @click="pedido.tamanho = tamanho"
                   :class="{ active: pedido.tamanho == tamanho }"
                   class="flex items-center justify-center w-10 h-10 mb-2 ml-2 border-2 cursor-pointer border-astronaut text-astronaut hover:bg-astronaut hover:text-white"
-                  v-for="tamanho in product.attributes[0].options">
+                  v-for="tamanho in tamanhos">
                     {{ tamanho }}
                   </div>
                 </div>

@@ -151,7 +151,7 @@ export default {
         this.frete.valor = 0.0
       }else if (this.frete.tipo == 'moto'){
         this.frete.prazo = 1
-        this.frete.valor = 15.0
+        this.frete.valor = 10.0
       }
     },
     remove(id){
