@@ -1,13 +1,13 @@
 <template lang="html">
-  <div class="wrapper pt-8">
-    <main v-for="product in products" :key="product.id" class="container mx-auto mb-12 pt-8">
-      <div class="wrapper w-10/12 mx-auto flex flex-col md:flex-row">
+  <div class="pt-8 wrapper">
+    <main class="container pt-8 mx-auto mb-12">
+      <div class="flex flex-col w-10/12 mx-auto wrapper md:flex-row">
         <div class="w-full md:w-1/2">
           <Galeria :images="product.images" />
         </div>
-        <div class="w-full md:w-1/2 mt-8 md:mt-0">
-          <h1 class="text-astronaut text-4xl md:mb-4 leading-none">{{ product.name }}</h1>
-          <h2 class="valor flex flex-col text-mara text-2xl md:text-4xl">
+        <div class="w-full mt-8 md:w-1/2 md:mt-0">
+          <h1 class="text-4xl leading-none text-astronaut md:mb-4">{{ product.name }}</h1>
+          <h2 class="flex flex-col text-2xl valor text-mara md:text-4xl">
             <div class="flex items-center ">
               {{ real(product.price) }}
               <div class="ml-2 text-xl text-astronaut" v-show="pedido.qtd > 1">
@@ -18,34 +18,34 @@
               até 3x de {{ real(parseFloat(product.price / 3).toFixed(2)) }}*
             </small>
           </h2>
-          <button @click.prevent="addToCart()" class="border-2 border-astronaut px-6 py-4 my-4 uppercase text-astronaut">
+          <button @click.prevent="addToCart()" class="px-6 py-4 my-4 uppercase border-2 border-astronaut text-astronaut">
             Adicionar ao carrinho
           </button>
           <div>
             <div class="detalhes">
-              <div class="description flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
+              <div class="flex flex-col items-center justify-between py-4 border-t-2 border-gray-300 description md:flex-row">
                 <header class="text-lg text-astronaut md:mr-6">
                   Descrição:
                 </header>
                 <div class="content" v-html="product.description">
                 </div>
               </div>
-              <div class="quantidade flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
+              <div class="flex flex-col items-center justify-between py-4 border-t-2 border-gray-300 quantidade md:flex-row">
                 <header class="text-lg text-astronaut md:mr-6">
                   Quantidade:
                 </header>
                 <div class="content">
-                  <input class="form-input px-4 py-2 text-center" type="number" v-model="pedido.qtd">
+                  <input class="px-4 py-2 text-center form-input" type="number" v-model="pedido.qtd">
                 </div>
               </div>
-              <div v-if="product.attributes[0]" class="attributes flex flex-col md:flex-row items-center justify-between py-4 border-t-2 border-gray-300">
+              <div v-if="tamanhos" class="flex flex-col items-center justify-between py-4 border-t-2 border-gray-300 attributes md:flex-row">
                 <header class="text-lg text-astronaut md:mr-6">
                   Tamanhos:
                 </header>
-                <div class="content flex flex-wrap">
+                <div class="flex flex-wrap content">
                   <div @click="pedido.tamanho = tamanho"
                   :class="{ active: pedido.tamanho == tamanho }"
-                  class="h-10 w-10 border-2 border-astronaut text-astronaut flex items-center justify-center ml-2 hover:bg-astronaut hover:text-white cursor-pointer mb-2"
+                  class="flex items-center justify-center w-10 h-10 mb-2 ml-2 border-2 cursor-pointer border-astronaut text-astronaut hover:bg-astronaut hover:text-white"
                   v-for="tamanho in product.attributes[0].options">
                     {{ tamanho }}
                   </div>
@@ -56,9 +56,6 @@
         </div>
       </div>
     </main>
-    <!-- <div class="container mx-auto bg-red-200 text-red-800 font-bold">
-      {{ pedido }}
-    </div> -->
     <!-- <section>
       <div class="container mx-auto">
         <HeadingSection title="Produtos Relacionados" />
@@ -85,7 +82,9 @@
       const products = await fetch(`${API_URL}/wp-json/wc/v3/products?status=publish&slug=${params.slug}`, obj)
         .then(res => res.json());
 
-      return { products }
+      let product = products[0];
+
+      return { product }
     },
     data() {
       return {
@@ -97,19 +96,18 @@
       }
     },
     mounted() {
-      this.pedido.product = this.products[0];
-      // if (this.product.attributes[0]) {
-      //   this.pedido.tamanho = this.product.attributes[0].options[0];
-      // }
+      this.pedido.product = this.product;
     },
-    // computed: {
-    //   loading(){
-    //     return this.$store.state.products.current.loading;
-    //   },
-    //   product(){
-    //     return this.$store.state.products.current.item;
-    //   },
-    // },
+    computed: {
+      tamanhos(){
+        let tamanhos = this.product.attributes.findIndex(e => e.name == "Tamanhos");
+        return tamanhos == -1 ? false : this.product.attributes[tamanhos].options;
+      },
+      cores(){
+        let cores = this.product.attributes.findIndex(e => e.name == "Cor");
+        return cores == -1 ? false : this.product.attributes[cores].options;
+      }
+    },
     methods: {
       addToCart(){
         this.$store.dispatch("cart/add", this.pedido);
