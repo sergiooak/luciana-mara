@@ -1,56 +1,56 @@
 <template lang="html">
   <div class="">
     <HeadingSection class="mt-8 mb-8" title="Checkout" />
-    <div class="container mx-auto flex flex-col md:flex-row items-start px-4 mb-12 relative">
-      <div v-if="loading" class="flex flex-col absolute inset-0 flex justify-center items-center bg-gray-200" style="--bg-opacity: .75">
+    <div class="container relative flex flex-col items-start px-4 mx-auto mb-12 md:flex-row">
+      <div v-if="loading" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-200" style="--bg-opacity: .75">
         <Spinner class="-mt-4" />
-        <div v-if="!sucesso" class="bg-white w-64 text-center text-astronaut mt-8 px-4 py-2">
+        <div v-if="!sucesso" class="w-64 px-4 py-2 mt-8 text-center bg-white text-astronaut">
           Por favor aguarde um instante, estamos criando a sua conta...
         </div>
-        <div v-if="sucesso" class="w-64 my-2 bg-green-100 border-l-4 border-green-600 text-green-800 px-4 py-2">
+        <div v-if="sucesso" class="w-64 px-4 py-2 my-2 text-green-800 bg-green-100 border-l-4 border-green-600">
           Conta criada com sucesso!
         </div>
-        <div v-if="sucesso" class="bg-white w-64 text-center text-astronaut p-4">
+        <div v-if="sucesso" class="w-64 p-4 text-center bg-white text-astronaut">
           Salvando o seu pedido...
         </div>
       </div>
 
       <!-- Tela de escolha -->
-      <main v-if="choice == false" class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
-        <h2 class="w-full text-center text-2xl font-be text-astronaut mb-8">Você já possui cadastro em nosso site?</h2>
-        <div class="w-1/2 border-r-2 border-gray-400 px-8 flex flex-col justify-center items-center">
-          <p class="text-gray-700 text-center mb-6">Faça login com a sua conta já existente:</p>
-          <button @click="$router.push('/login')" class="bg-astronaut px-8 py-2 text-white uppercase rounded-none hover:bg-mara">
+      <main v-if="choice == false" class="container flex flex-wrap justify-center w-full mx-auto md:w-8/12 md:pr-8">
+        <h2 class="w-full mb-8 text-2xl text-center font-be text-astronaut">Você já possui cadastro em nosso site?</h2>
+        <div class="flex flex-col items-center justify-center w-1/2 px-8 border-r-2 border-gray-400">
+          <p class="mb-6 text-center text-gray-700">Faça login com a sua conta já existente:</p>
+          <button @click="$router.push('/login')" class="px-8 py-2 text-white uppercase rounded-none bg-astronaut hover:bg-mara">
             Fazer login
           </button>
         </div>
-        <div class="w-1/2 px-8 flex flex-col justify-center items-center">
-          <p class="text-gray-700 text-center mb-6">Clique no botão abaixo para criar a sua conta:</p>
-          <button @click="choice = 'singup'" class="bg-astronaut px-8 py-2 text-white uppercase rounded-none hover:bg-mara">
+        <div class="flex flex-col items-center justify-center w-1/2 px-8">
+          <p class="mb-6 text-center text-gray-700">Clique no botão abaixo para criar a sua conta:</p>
+          <button @click="choice = 'singup'" class="px-8 py-2 text-white uppercase rounded-none bg-astronaut hover:bg-mara">
             Criar conta
           </button>
         </div>        
       </main>
 
       <!-- Tela de cadastro -->
-      <main v-if="choice == 'singup'" class="w-full md:w-8/12 container mx-auto flex justify-center flex-wrap md:pr-8">
-        <div class="w-full mb-4 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight mb-4">
+      <main v-if="choice == 'singup'" class="container flex flex-wrap justify-center w-full mx-auto md:w-8/12 md:pr-8">
+        <div class="w-full px-4 py-2 mb-4 text-sm leading-tight text-blue-800 bg-blue-100 border-l-4 border-blue-600">
           Crie sua conta utilizando o formulário abaixo.
         </div>
 
         <!-- Início do formulário -->
         <form @submit.prevent="createUser" class="w-full" autocomplete="on">
           <div class="flex w-full mt-4">
-            <label class="block mr-2 w-full">
+            <label class="block w-full mr-2">
               <span class="text-gray-700">Nome</span>
               <input  v-model="form.nome"
-                      class="form-input mt-1 block w-full"
+                      class="block w-full mt-1 form-input"
                       required autofocus>
             </label>
-            <label class="block ml-2 w-full">
+            <label class="block w-full ml-2">
               <span class="text-gray-700">Sobrenome</span>
               <input  v-model="form.sobrenome"
-                      class="form-input mt-1 block w-full"
+                      class="block w-full mt-1 form-input"
                       required>
             </label>
           </div>
@@ -60,7 +60,7 @@
               <input  type="email"
                       v-model="form.email"
                       name="username"
-                      class="form-input mt-1 block w-full"
+                      class="block w-full mt-1 form-input"
                       required>
             </label>
             <label class="block w-full ml-2">
@@ -69,9 +69,9 @@
                 <input  v-model="form.senha"
                         name="password"
                         :type="senha ? 'text' : 'password'"
-                        class="form-input mt-1 block w-full"
+                        class="block w-full mt-1 form-input"
                         required>
-                <button @click="senha = !senha" type="button" name="button" class="w-12 h-10 bg-astronaut flex justify-center items-center text-white hover:bg-mara transition-colors duration-150 focus:outline-none">
+                <button @click="senha = !senha" type="button" name="button" class="flex items-center justify-center w-12 h-10 text-white transition-colors duration-150 bg-astronaut hover:bg-mara focus:outline-none">
                   <div v-if="senha">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C6.40848 3 1.71018 6.82432 0.378052 12C1.71018 17.1757 6.40848 21 12 21C17.5915 21 22.2898 17.1757 23.6219 12C22.2898 6.82432 17.5915 3 12 3ZM16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" fill="currentColor" /></svg>
                   </div>
@@ -82,73 +82,73 @@
               </div>
             </label>
           </div>
-          <div class="flex items-end w-full mt-8 pt-4 border-t-2 border-gray-400">
-            <label class="block mr-2 w-full">
+          <div class="flex items-end w-full pt-4 mt-8 border-t-2 border-gray-400">
+            <label class="block w-full mr-2">
               <span class="text-gray-700">CEP</span>
-              <input v-mask="'#####-###'" v-model="form.cep" class="form-input mt-1 block w-full">
+              <input v-mask="'#####-###'" v-model="form.cep" class="block w-full mt-1 form-input">
             </label>
-            <div class="ml-2 w-full h-full mb-0 bg-blue-100 border-l-4 border-blue-600 text-blue-800 px-4 py-2 text-sm leading-tight">
+            <div class="w-full h-full px-4 py-2 mb-0 ml-2 text-sm leading-tight text-blue-800 bg-blue-100 border-l-4 border-blue-600">
               Informar o CEP primeiro agiliza o preenchimento do restante do formulário.
             </div>
           </div>
           <div class="flex w-full mt-4">
-            <label class="block mr-2 w-full">
+            <label class="block w-full mr-2">
               <span class="text-gray-700">Endereço</span>
-              <input v-model="form.endereco" class="form-input mt-1 block w-full">
+              <input v-model="form.endereco" class="block w-full mt-1 form-input">
             </label>
-            <label class="block ml-2 w-full">
+            <label class="block w-full ml-2">
               <span class="text-gray-700">Número</span>
-              <input v-model="form.numero" class="form-input mt-1 block w-full">
+              <input v-model="form.numero" class="block w-full mt-1 form-input">
             </label>
           </div>
           <div class="flex w-full mt-4">
-            <label class="block mr-2 w-full">
+            <label class="block w-full mr-2">
               <span class="text-gray-700">Bairro</span>
-              <input v-model="form.bairro" class="form-input mt-1 block w-full">
+              <input v-model="form.bairro" class="block w-full mt-1 form-input">
             </label>
-            <label class="block ml-2 w-full">
+            <label class="block w-full ml-2">
               <span class="text-gray-700">Cidade</span>
-              <input v-model="form.cidade" class="form-input mt-1 block w-full">
+              <input v-model="form.cidade" class="block w-full mt-1 form-input">
             </label>
           </div>
           <div class="flex w-full mt-4">
-            <label class="block mr-2 w-full">
+            <label class="block w-full mr-2">
               <span class="text-gray-700">Estado</span>
-              <input v-model="form.estado" class="form-input mt-1 block w-full">
+              <input v-model="form.estado" class="block w-full mt-1 form-input">
             </label>
-            <label class="block ml-2 w-full">
+            <label class="block w-full ml-2">
               <span class="text-gray-700">País</span>
-              <input v-model="form.pais" class="form-input mt-1 block w-full">
+              <input v-model="form.pais" class="block w-full mt-1 form-input">
             </label>
           </div>
-          <div class="flex w-full mt-8 pt-4 border-t-2 border-gray-400">
-            <label class="block mr-2 w-full">
+          <div class="flex w-full pt-4 mt-8 border-t-2 border-gray-400">
+            <label class="block w-full mr-2">
               <span class="text-gray-700">Celular</span>
               <input  v-mask="'(##) #####-####'"
                       v-model="form.celular"
                       placeholder="(00) 00000-0000"
-                      class="form-input mt-1 block w-full"
+                      class="block w-full mt-1 form-input"
                       required>
             </label>
-            <label class="block ml-2 w-full">
+            <label class="block w-full ml-2">
               <span class="text-gray-700">WhatsApp</span>
               <div class="mt-2">
                 <label class="inline-flex items-center">
-                  <input type="checkbox" v-model="form.whatsapp" class="form-checkbox h-6 w-6">
+                  <input type="checkbox" v-model="form.whatsapp" class="w-6 h-6 form-checkbox">
                   <span class="ml-3 text-sm">O número informado está no WhatsApp?</span>
                 </label>
               </div>
             </label>
           </div>
           <footer class="mt-12">
-            <input type="submit" name="" value="Continuar para o financeiro" class="w-full bg-astronaut text-white uppercase px-8 py-4 cursor-pointer hover:bg-mara transition-colors duration-150">
+            <input type="submit" name="" value="Continuar para o financeiro" class="w-full px-8 py-4 text-white uppercase transition-colors duration-150 cursor-pointer bg-astronaut hover:bg-mara">
           </footer>
         </form>
       </main>
 
       <!-- ìnicio da Lateral -->
-      <aside class="w-full md:w-4/12 mt-8 md:mt-0 bg-white">
-        <header class="p-4 uppercase text-gray-600">
+      <aside class="w-full mt-8 bg-white md:w-4/12 md:mt-0">
+        <header class="p-4 text-gray-600 uppercase">
           Seu pedido:
         </header>
         <div class="mb-8">
@@ -161,11 +161,11 @@
             </tbody>
           </table>
         </div>
-        <div class="px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center justify-between px-4 py-2">
           <div class="text-sm">Sub-total:</div>
           <div class="text-sm">{{ real(valorTotal) }}</div>
         </div>
-        <div class="px-4 py-2 flex justify-between items-center border-t-2 border-gray-400">
+        <div class="flex items-center justify-between px-4 py-2 border-t-2 border-gray-400">
           <div class="text-sm">
             Entrega
           </div>
@@ -173,10 +173,10 @@
             {{ real(frete.valor) }}
           </div>
         </div>
-        <div class="px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center justify-between px-4 py-2">
           <!-- input -->
         </div>
-        <div class="p-4 flex justify-between items-center border-t-2 border-gray-400">
+        <div class="flex items-center justify-between p-4 border-t-2 border-gray-400">
           <div>
             Total
           </div>
